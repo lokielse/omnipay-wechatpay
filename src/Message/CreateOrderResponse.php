@@ -61,7 +61,9 @@ class CreateOrderResponse extends BaseAbstractResponse
     public function getCodeUrl()
     {
         if ($this->isSuccessful() && $this->request->getTradeType() == 'NATIVE') {
-            return $this->getData()['code_url'];
+            $data = $this->getData();
+
+            return $data['code_url'];
         } else {
             return null;
         }
@@ -71,7 +73,9 @@ class CreateOrderResponse extends BaseAbstractResponse
     public function getPrepayId()
     {
         if ($this->isSuccessful()) {
-            return $this->getData()['prepay_id'];
+            $data = $this->getData();
+
+            return $data['prepay_id'];
         } else {
             return null;
         }
