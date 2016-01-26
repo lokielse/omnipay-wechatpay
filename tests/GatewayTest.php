@@ -28,8 +28,9 @@ class GatewayTest extends GatewayTestCase
         $this->gateway = Omnipay::create('WechatPay');
         $this->gateway->setAppId('123456789');
         $this->gateway->setMchId('123456789');
-        $this->gateway->setApiKey('123456789');
+        $this->gateway->setApiKey('XXSXXXSXXSXXSX');
         $this->gateway->setNotifyUrl('http://example.com/notify');
+        $this->gateway->setTradeType('APP');
 
     }
 
@@ -113,6 +114,7 @@ class GatewayTest extends GatewayTestCase
         $response = $this->gateway->query($options)->send();
         $this->assertFalse($response->isSuccessful());
     }
+
 
     public function testQueryRefund()
     {
