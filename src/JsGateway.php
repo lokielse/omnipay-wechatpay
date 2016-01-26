@@ -15,7 +15,7 @@ class JsGateway extends BaseAbstractGateway
     }
 
 
-    public function  getTradeType()
+    public function getTradeType()
     {
         return 'JSAPI';
     }
