@@ -40,7 +40,7 @@ The following gateways are provided by this package:
 
 ## Usage
 
-### Create Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1)
+### Create Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1){:target="_blank"}
 
 ```php
 //gateways: WechatPay_App, WechatPay_Native, WechatPay_Js
@@ -70,7 +70,7 @@ $response->getOrderData(); //For APP
 $response->getCodeUrl(); //For Native Trade Type
 ```
 
-### Notify [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_7&index=3)
+### Notify [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_7&index=3){:target="_blank"}
 ```php
 $gateway    = Omnipay::create('WechatPay');
 $gateway->setAppId($config['app_id']);
@@ -88,7 +88,7 @@ if ($response->isPaid()) {
 }
 ```
 
-### Query Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1)
+### Query Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1){:target="_blank"}
 ```php
 $response = $gateway->query([
     'transaction_id' => '1217752501201407033233368018', //The wechat trade no
@@ -99,7 +99,7 @@ var_dump($response->getData());
 ```
 
 
-### Close Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_3&index=5)
+### Close Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_3&index=5){:target="_blank"}
 ```php
 $response = $gateway->close([
     'out_trade_no' => '201602011315231245', //The merchant trade no
@@ -109,7 +109,7 @@ var_dump($response->isSuccessful());
 var_dump($response->getData());
 ```
 
-### Refund [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_4&index=6)
+### Refund [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_4&index=6){:target="_blank"}
 ```php
 $gateway->setCertPath($certPath);
 $gateway->setKeyPath($keyPath);
@@ -125,7 +125,7 @@ var_dump($response->isSuccessful());
 var_dump($response->getData());
 ```
 
-### QueryRefund [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_5&index=7)
+### QueryRefund [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_5&index=7){:target="_blank"}
 ```php
 $response = $gateway->queryRefund([
     'refund_id' => '1217752501201407033233368018', //Your site trade no, not union tn.
@@ -135,7 +135,7 @@ var_dump($response->isSuccessful());
 var_dump($response->getData());
 ```
 
-### Shorten URL (for `WechatPay_Native`) [doc](https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_9&index=8)
+### Shorten URL (for `WechatPay_Native`) [doc](https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_9&index=8){:target="_blank"}
 ```php
 $response = $gateway->shortenUrl([
     'long_url' => $longUrl
@@ -146,7 +146,7 @@ var_dump($response->getData());
 var_dump($response->getShortUrl());
 ```
 
-### Query OpenId (for `WechatPay_Pos`) [doc](https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_13&index=9)
+### Query OpenId (for `WechatPay_Pos`) [doc](https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_13&index=9){:target="_blank"}
 ```php
 $response = $gateway->shortenUrl([
     'auth_code' => $authCode
