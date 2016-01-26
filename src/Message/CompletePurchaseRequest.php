@@ -25,7 +25,9 @@ class CompletePurchaseRequest extends BaseAbstractRequest
     {
         $data = $this->getRequestParams();
 
-        $data = Helper::xml2array($data);
+        if (is_string($data)) {
+            $data = Helper::xml2array($data);
+        }
 
         return $data;
     }
@@ -70,6 +72,6 @@ class CompletePurchaseRequest extends BaseAbstractRequest
             $responseData['paid'] = false;
         }
 
-        return $this->response = new CreateOrderResponse($this, $responseData);
+        return $this->response = new CompletePurchaseResponse($this, $responseData);
     }
 }

@@ -78,7 +78,7 @@ $gateway->setMchId($config['mch_id']);
 $gateway->setApiKey($config['api_key']);
 
 $response = $gateway->completePurchase([
-    'request_params' => array_merge($_GET, $_POST) //don't use $_REQUEST for may contain $_COOKIE
+    'request_params' => file_get_contents('php://input')
 ])->send();
 
 if ($response->isPaid()) {
