@@ -28,12 +28,12 @@ class QueryRefundRequest extends BaseAbstractRequest
     {
         $this->validate('app_id', 'mch_id');
 
-        if (! $this->getTransactionId() && ! $this->getOutTradeNo() && ! $this->getOutRefundNo(
-            ) && ! $this->getRefundId()
-        ) {
-            throw new InvalidRequestException(
-                "The 'transaction_id' or 'out_trade_no' or 'out_refund_no' or 'refund_id' parameter is required"
-            );
+        $queryIdEmpty = ! $this->getTransactionId() && ! $this->getOutTradeNo();
+        $queryIdEmpty = ($queryIdEmpty && ! $this->getOutRefundNo() && ! $this->getRefundId());
+
+        if ($queryIdEmpty) {
+            $message = "The 'transaction_id' or 'out_trade_no' or 'out_refund_no' or 'refund_id' parameter is required";
+            throw new InvalidRequestException($message);
         }
 
         $data = array (

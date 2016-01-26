@@ -15,7 +15,7 @@ class AppGateway extends BaseAbstractGateway
     }
 
 
-    public function  getTradeType()
+    public function getTradeType()
     {
         return 'APP';
     }

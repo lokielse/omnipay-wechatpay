@@ -15,7 +15,7 @@ class NativeGateway extends BaseAbstractGateway
     }
 
 
-    public function  getTradeType()
+    public function getTradeType()
     {
         return 'NATIVE';
     }
