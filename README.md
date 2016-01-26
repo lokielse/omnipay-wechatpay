@@ -43,7 +43,7 @@ The following gateways are provided by this package:
 ### Create Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1)
 
 ```php
-//gateways: WechatPay_App, WechatPay_Native, WechatPay_Js, WechatPay_Po
+//gateways: WechatPay_App, WechatPay_Native, WechatPay_Js, WechatPay_Pos
 $gateway    = Omnipay::create('WechatPay_App');
 $gateway->setAppId($config['app_id']);
 $gateway->setMchId($config['mch_id']);
