@@ -1,6 +1,6 @@
 # Omnipay: WechatPay
 
-**WechatPay driver for the Omnipay PHP payment processing library**
+**WechatPay International driver for the Omnipay PHP payment processing library**
 
 [![Build Status](https://travis-ci.org/lokielse/omnipay-wechatpay.png?branch=master)](https://travis-ci.org/lokielse/omnipay-wechatpay)
 [![Latest Stable Version](https://poser.pugx.org/lokielse/omnipay-wechatpay/version.png)](https://packagist.org/packages/lokielse/omnipay-wechatpay)
@@ -50,10 +50,11 @@ $gateway->setMchId($config['mch_id']);
 $gateway->setApiKey($config['api_key']);
 
 $order = [
-    'body'           => 'The test order',
-    'out_trade_no'   => date('YmdHis').mt_rand(1000, 9999),
-    'total_fee'      => 1, //=0.01
-    'client_ip'      => 'the_user_ip_address'
+    'body'              => 'The test order',
+    'out_trade_no'      => date('YmdHis').mt_rand(1000, 9999),
+    'total_fee'         => 1, //=0.01
+    'spbill_create_ip'  => 'ip_address',
+    'fee_type'          => 'CNY'
 ];
 
 /**
