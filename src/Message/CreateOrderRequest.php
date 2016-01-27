@@ -38,11 +38,7 @@ class CreateOrderRequest extends BaseAbstractRequest
         $tradeType = strtoupper($this->getTradeType());
 
         if ($tradeType == 'JSAPI') {
-            $this->validate('open_id', 'client_ip');
-        } elseif ($tradeType == 'APP') {
-            $this->validate('client_ip');
-        } elseif ($tradeType == 'Native') {
-            $this->validate('server_ip');
+            $this->validate('open_id');
         }
 
         $data = array (
@@ -55,7 +51,7 @@ class CreateOrderRequest extends BaseAbstractRequest
             'out_trade_no'     => $this->getOutTradeNo(),//*
             'fee_type'         => $this->getFeeType(),
             'total_fee'        => $this->getTotalFee(),//*
-            'spbill_create_ip' => $this->getClientIp() ?: $this->getServerIp(),//*
+            'spbill_create_ip' => $this->getSpbillCreateIp(),//*
             'time_start'       => $this->getTimeStart(),//yyyyMMddHHmmss
             'time_expire'      => $this->getTimeExpire(),//yyyyMMddHHmmss
             'goods_tag'        => $this->getGoodsTag(),
@@ -338,36 +334,6 @@ class CreateOrderRequest extends BaseAbstractRequest
     public function setOpenId($openId)
     {
         $this->setParameter('open_id', $openId);
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getClientIp()
-    {
-        return $this->getParameter('client_ip');
-    }
-
-
-    public function setClientIp($clientIp)
-    {
-        $this->setParameter('client_ip', $clientIp);
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getServerIp()
-    {
-        return $this->getParameter('server_ip');
-    }
-
-
-    public function setServerIp($serverIp)
-    {
-        $this->setParameter('server_ip', $serverIp);
     }
 
 
