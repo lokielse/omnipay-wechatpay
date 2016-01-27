@@ -65,7 +65,7 @@ class CompletePurchaseRequest extends BaseAbstractRequest
             $responseData['sign_ok'] = false;
         }
 
-        if (isset($data['result_code']) && $data['result_code'] == 'SUCCESS') {
+        if ($responseData['sign_ok'] && isset($data['result_code']) && $data['result_code'] == 'SUCCESS') {
             $responseData['paid'] = true;
         } else {
             $responseData['paid'] = false;
