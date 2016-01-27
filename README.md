@@ -6,7 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/lokielse/omnipay-wechatpay/version.png)](https://packagist.org/packages/lokielse/omnipay-wechatpay)
 [![Total Downloads](https://poser.pugx.org/lokielse/omnipay-wechatpay/d/total.png)](https://packagist.org/packages/lokielse/omnipay-wechatpay)
 
-> The WechatPay gateways can be accessed from outside of China
+> The WechatPay gateway can be accessed from outside of China
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements UnionPay support for Omnipay.
