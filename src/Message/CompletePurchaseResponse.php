@@ -22,7 +22,7 @@ class CompletePurchaseResponse extends AbstractResponse
     {
         $data = $this->getData();
 
-        return $data['sign_ok'];
+        return $data['sign_match'];
     }
 
 
@@ -30,6 +30,6 @@ class CompletePurchaseResponse extends AbstractResponse
     {
         $data = $this->getData();
 
-        return $data['sign_ok'] && $data['paid'];
+        return $data['paid'];
     }
 }
