@@ -1,10 +1,9 @@
 <?php
 
-namespace Omnipay\UnionPay;
+namespace Omnipay\WechatPay;
 
 use Omnipay\Omnipay;
 use Omnipay\Tests\GatewayTestCase;
-use Omnipay\WechatPay\Gateway;
 use Omnipay\WechatPay\Message\CloseOrderResponse;
 use Omnipay\WechatPay\Message\CompletePurchaseResponse;
 use Omnipay\WechatPay\Message\CreateOrderResponse;
