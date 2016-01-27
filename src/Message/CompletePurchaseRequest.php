@@ -54,13 +54,12 @@ class CompletePurchaseRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-
         $data = $this->getData();
         $sign = Helper::sign($data, $this->getApiKey());
 
         $responseData = array ();
 
-        if (isset($data['sign']) && $sign == $data['sign']) {
+        if (isset($data['sign']) && $data['sign'] && $sign === $data['sign']) {
             $responseData['sign_ok'] = true;
         } else {
             $responseData['sign_ok'] = false;
