@@ -1,6 +1,8 @@
 # Omnipay: WechatPay
 
-**WechatPay International driver for the Omnipay PHP payment processing library**
+**WechatPay driver for the Omnipay PHP payment processing library**
+
+> The WechatPay gateways can be accessed from outside of China
 
 [![Build Status](https://travis-ci.org/lokielse/omnipay-wechatpay.png?branch=master)](https://travis-ci.org/lokielse/omnipay-wechatpay)
 [![Latest Stable Version](https://poser.pugx.org/lokielse/omnipay-wechatpay/version.png)](https://packagist.org/packages/lokielse/omnipay-wechatpay)
