@@ -32,7 +32,8 @@ class CreateOrderRequest extends BaseAbstractRequest
             'out_trade_no',
             'total_fee',
             'notify_url',
-            'trade_type'
+            'trade_type',
+            'spbill_create_ip'
         );
 
         $tradeType = strtoupper($this->getTradeType());

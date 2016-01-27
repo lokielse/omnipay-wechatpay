@@ -37,10 +37,10 @@ class GatewayTest extends GatewayTestCase
     public function testPurchase()
     {
         $order = array (
-            'body'         => date('YmdHis'), //Your order ID
-            'out_trade_no' => date('YmdHis'), //Should be format 'YmdHis'
-            'total_fee'    => 'My order title', //Order Title
-            'client_ip'    => '114.119.110.120', //Order Total Fee
+            'body'             => 'test', //Your order ID
+            'out_trade_no'     => date('YmdHis'), //Should be format 'YmdHis'
+            'total_fee'        => '0.01', //Order Title
+            'spbill_create_ip' => '114.119.110.120', //Order Total Fee
         );
 
         /**
