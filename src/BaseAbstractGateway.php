@@ -167,7 +167,7 @@ abstract class BaseAbstractGateway extends AbstractGateway
      */
     public function queryRefund($parameters = array ())
     {
-        return $this->createRequest('\Omnipay\WechatPay\Message\QueryOrderRequest', $parameters);
+        return $this->createRequest('\Omnipay\WechatPay\Message\QueryRefundRequest', $parameters);
     }
 
 
