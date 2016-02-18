@@ -87,6 +87,7 @@ $response = $gateway->completePurchase([
 
 if ($response->isPaid()) {
     //pay success
+    var_dump($response->getData());
 }else{
     //pay fail
 }
