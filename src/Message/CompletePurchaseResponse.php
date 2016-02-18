@@ -38,4 +38,9 @@ class CompletePurchaseResponse extends AbstractResponse
 
         return $data['paid'];
     }
+
+    public function getData()
+    {
+        return $this->request->getData();
+    }
 }
