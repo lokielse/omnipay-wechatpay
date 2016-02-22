@@ -7,7 +7,7 @@ use SimpleXMLElement;
 class Helper
 {
 
-    public static function post($url, $data = array (), $timeout = 3, $options = array ())
+    public static function post($url, $data = array(), $timeout = 3, $options = array())
     {
         $ch = curl_init($url);
 
@@ -28,11 +28,25 @@ class Helper
     public static function array2xml($data, $root = 'xml')
     {
         $data = array_filter($data);
+        $data = self::changeValueToString($data);
         $data = array_flip($data);
         $xml  = new SimpleXMLElement("<{$root}/>");
-        array_walk_recursive($data, array ($xml, 'addChild'));
+        array_walk_recursive($data, array( $xml, 'addChild' ));
 
         return $xml->asXML();
+    }
+
+
+    private static function changeValueToString($data)
+    {
+        $data1 = [ ];
+        foreach ($data as $k => $v) {
+            if (is_string($v) || is_numeric($v)) {
+                $data1[$k] = $v . '';
+            }
+        }
+
+        return $data1;
     }
 
 
@@ -44,7 +58,7 @@ class Helper
 
     public static function sign($data, $key)
     {
-        unset($data['sign']);
+        unset( $data['sign'] );
 
         ksort($data);
 
