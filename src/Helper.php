@@ -39,7 +39,8 @@ class Helper
 
     private static function changeValueToString($data)
     {
-        $data1 = [ ];
+        $data1 = array();
+
         foreach ($data as $k => $v) {
             if (is_string($v) || is_numeric($v)) {
                 $data1[$k] = $v . '';
