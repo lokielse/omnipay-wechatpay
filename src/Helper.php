@@ -7,7 +7,7 @@ use SimpleXMLElement;
 class Helper
 {
 
-    public static function post($url, $data = array(), $timeout = 3, $options = array())
+    public static function post($url, $data = array(), $timeout = 30, $options = array())
     {
         $ch = curl_init($url);
 
