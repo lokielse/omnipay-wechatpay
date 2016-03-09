@@ -21,7 +21,7 @@ class CreateOrderResponse extends BaseAbstractResponse
     public function getAppOrderData()
     {
         if ($this->isSuccessful()) {
-            $data = array (
+            $data = array(
                 'appid'     => $this->request->getAppId(),
                 'partnerid' => $this->request->getMchId(),
                 'prepayid'  => $this->getPrepayId(),
@@ -42,14 +42,15 @@ class CreateOrderResponse extends BaseAbstractResponse
     public function getJSOrderData()
     {
         if ($this->isSuccessful()) {
-            $data = array (
+            $data = array(
                 'appId'     => $this->request->getAppId(),
                 'package'   => 'prepay_id=' . $this->getPrepayId(),
                 'nonceStr'  => md5(uniqid()),
                 'timeStamp' => time(),
             );
 
-            $data['sign'] = Helper::sign($data, $this->request->getApiKey());
+            $data['signType'] = 'MD5';
+            $data['paySign']  = Helper::sign($data, $this->request->getApiKey());
         } else {
             $data = null;
         }
