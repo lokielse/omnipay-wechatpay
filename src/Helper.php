@@ -15,6 +15,7 @@ class Helper
         curl_setopt($ch, CURLOPT_POSTFIELDS, self::array2xml($data));
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
         curl_setopt_array($ch, $options);
 
         $result = curl_exec($ch);
