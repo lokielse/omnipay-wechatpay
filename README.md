@@ -42,7 +42,7 @@ The following gateways are provided by this package:
 
 ## Usage
 
-### Create Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1)
+### Create Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1)
 
 ```php
 //gateways: WechatPay_App, WechatPay_Native, WechatPay_Js, WechatPay_Pos
@@ -74,7 +74,7 @@ $response->getJsOrderData(); //For WechatPay_Js
 $response->getCodeUrl(); //For Native Trade Type
 ```
 
-### Notify [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_7&index=3)
+### Notify [doc](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_7&index=3)
 ```php
 $gateway    = Omnipay::create('WechatPay');
 $gateway->setAppId($config['app_id']);
@@ -93,7 +93,7 @@ if ($response->isPaid()) {
 }
 ```
 
-### Query Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1)
+### Query Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1)
 ```php
 $response = $gateway->query([
     'transaction_id' => '1217752501201407033233368018', //The wechat trade no
@@ -104,7 +104,7 @@ var_dump($response->getData());
 ```
 
 
-### Close Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_3&index=5)
+### Close Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_3&index=5)
 ```php
 $response = $gateway->close([
     'out_trade_no' => '201602011315231245', //The merchant trade no
@@ -114,7 +114,7 @@ var_dump($response->isSuccessful());
 var_dump($response->getData());
 ```
 
-### Refund [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_4&index=6)
+### Refund [doc](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_4&index=6)
 ```php
 $gateway->setCertPath($certPath);
 $gateway->setKeyPath($keyPath);
@@ -130,7 +130,7 @@ var_dump($response->isSuccessful());
 var_dump($response->getData());
 ```
 
-### QueryRefund [doc](https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_5&index=7)
+### QueryRefund [doc](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_5&index=7)
 ```php
 $response = $gateway->queryRefund([
     'refund_id' => '1217752501201407033233368018', //Your site trade no, not union tn.
