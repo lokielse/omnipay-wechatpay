@@ -2,8 +2,6 @@
 
 namespace Omnipay\WechatPay;
 
-use SimpleXMLElement;
-
 class Helper
 {
 
@@ -26,29 +24,19 @@ class Helper
     }
 
 
-    public static function array2xml($data, $root = 'xml')
+    public static function array2xml($arr, $root = 'xml')
     {
-        $data = array_filter($data);
-        $data = self::changeValueToString($data);
-        $data = array_flip($data);
-        $xml  = new SimpleXMLElement("<{$root}/>");
-        array_walk_recursive($data, array( $xml, 'addChild' ));
-
-        return $xml->asXML();
-    }
-
-
-    private static function changeValueToString($data)
-    {
-        $data1 = array();
-
-        foreach ($data as $k => $v) {
-            if (is_string($v) || is_numeric($v)) {
-                $data1[$k] = $v . '';
+        $xml = "<$root>";
+        foreach ($arr as $key => $val) {
+            if (is_numeric($val)) {
+                $xml .= "<" . $key . ">" . $val . "</" . $key . ">";
+            } else {
+                $xml .= "<" . $key . "><![CDATA[" . $val . "]]></" . $key . ">";
             }
         }
+        $xml .= "</xml>";
 
-        return $data1;
+        return $xml;
     }
 
 
