@@ -84,7 +84,7 @@ class CreateMicroOrderRequest extends CreateOrderRequest
      */
     public function sendData($data)
     {
-        $responseData = Helper::post($this->endpoint, $data);
+        $responseData =  $this->httpClient->post($this->endpoint,null, $data)->getBody();
 
         return $this->response = new CreateOrderResponse($this, $responseData);
     }
