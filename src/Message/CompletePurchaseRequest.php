@@ -15,33 +15,9 @@ use Omnipay\WechatPay\Helper;
 class CompletePurchaseRequest extends BaseAbstractRequest
 {
 
-    /**
-     * Get the raw data array for this message. The format of this varies from gateway to
-     * gateway, but will usually be either an associative array, or a SimpleXMLElement.
-     *
-     * @return mixed
-     */
-    public function getData()
-    {
-        $data = $this->getRequestParams();
-
-        if (is_string($data)) {
-            $data = Helper::xml2array($data);
-        }
-
-        return $data;
-    }
-
-
     public function setRequestParams($requestParams)
     {
         $this->setParameter('request_params', $requestParams);
-    }
-
-
-    public function getRequestParams()
-    {
-        return $this->getParameter('request_params');
     }
 
 
@@ -72,5 +48,29 @@ class CompletePurchaseRequest extends BaseAbstractRequest
         }
 
         return $this->response = new CompletePurchaseResponse($this, $responseData);
+    }
+
+
+    /**
+     * Get the raw data array for this message. The format of this varies from gateway to
+     * gateway, but will usually be either an associative array, or a SimpleXMLElement.
+     *
+     * @return mixed
+     */
+    public function getData()
+    {
+        $data = $this->getRequestParams();
+
+        if (is_string($data)) {
+            $data = Helper::xml2array($data);
+        }
+
+        return $data;
+    }
+
+
+    public function getRequestParams()
+    {
+        return $this->getParameter('request_params');
     }
 }

@@ -26,7 +26,6 @@ class QueryOrderRequest extends BaseAbstractRequest
      */
     public function getData()
     {
-
         $this->validate('app_id', 'mch_id');
 
         if (! $this->getTransactionId() && ! $this->getOutTradeNo()) {
@@ -92,7 +91,9 @@ class QueryOrderRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $responseData = Helper::post($this->endpoint, $data);
+        $request      = $this->httpClient->post($this->endpoint)->setBody(Helper::array2xml($data));
+        $response     = $request->send()->getBody();
+        $responseData = Helper::xml2array($response);
 
         return $this->response = new QueryOrderResponse($this, $responseData);
     }
