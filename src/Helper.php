@@ -5,25 +5,6 @@ namespace Omnipay\WechatPay;
 class Helper
 {
 
-    public static function post($url, $data = array(), $timeout = 30, $options = array())
-    {
-        $ch = curl_init($url);
-
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, self::array2xml($data));
-        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        curl_setopt_array($ch, $options);
-
-        $result = curl_exec($ch);
-
-        $result = self::xml2array($result);
-
-        return $result;
-    }
-
-
     public static function array2xml($arr, $root = 'xml')
     {
         $xml = "<$root>";
@@ -48,7 +29,7 @@ class Helper
 
     public static function sign($data, $key)
     {
-        unset( $data['sign'] );
+        unset($data['sign']);
 
         ksort($data);
 

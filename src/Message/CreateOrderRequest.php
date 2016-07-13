@@ -74,18 +74,18 @@ class CreateOrderRequest extends BaseAbstractRequest
     /**
      * @return mixed
      */
-    public function getDeviceInfo()
+    public function getTradeType()
     {
-        return $this->getParameter('device_Info');
+        return $this->getParameter('trade_type');
     }
 
 
     /**
-     * @param mixed $deviceInfo
+     * @return mixed
      */
-    public function setDeviceInfo($deviceInfo)
+    public function getDeviceInfo()
     {
-        $this->setParameter('device_Info', $deviceInfo);
+        return $this->getParameter('device_Info');
     }
 
 
@@ -99,29 +99,11 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $body
-     */
-    public function setBody($body)
-    {
-        $this->setParameter('body', $body);
-    }
-
-
-    /**
      * @return mixed
      */
     public function getDetail()
     {
         return $this->getParameter('detail');
-    }
-
-
-    /**
-     * @param mixed $detail
-     */
-    public function setDetail($detail)
-    {
-        $this->setParameter('detail', $detail);
     }
 
 
@@ -135,29 +117,11 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $attach
-     */
-    public function setAttach($attach)
-    {
-        $this->setParameter('attach', $attach);
-    }
-
-
-    /**
      * @return mixed
      */
     public function getOutTradeNo()
     {
         return $this->getParameter('out_trade_no');
-    }
-
-
-    /**
-     * @param mixed $outTradeNo
-     */
-    public function setOutTradeNo($outTradeNo)
-    {
-        $this->setParameter('out_trade_no', $outTradeNo);
     }
 
 
@@ -171,29 +135,11 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $feeType
-     */
-    public function setFeeType($feeType)
-    {
-        $this->setParameter('fee_type', $feeType);
-    }
-
-
-    /**
      * @return mixed
      */
     public function getTotalFee()
     {
         return $this->getParameter('total_fee');
-    }
-
-
-    /**
-     * @param mixed $totalFee
-     */
-    public function setTotalFee($totalFee)
-    {
-        $this->setParameter('total_fee', $totalFee);
     }
 
 
@@ -207,29 +153,11 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $spbillCreateIp
-     */
-    public function setSpbillCreateIp($spbillCreateIp)
-    {
-        $this->setParameter('spbill_create_ip', $spbillCreateIp);
-    }
-
-
-    /**
      * @return mixed
      */
     public function getTimeStart()
     {
         return $this->getParameter('time_start');
-    }
-
-
-    /**
-     * @param mixed $timeStart
-     */
-    public function setTimeStart($timeStart)
-    {
-        $this->setParameter('time_start', $timeStart);
     }
 
 
@@ -243,15 +171,6 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $timeExpire
-     */
-    public function setTimeExpire($timeExpire)
-    {
-        $this->setParameter('time_expire', $timeExpire);
-    }
-
-
-    /**
      * @return mixed
      */
     public function getGoodsTag()
@@ -261,44 +180,11 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $goodsTag
-     */
-    public function setGoodsTag($goodsTag)
-    {
-        $this->setParameter('goods_tag', $goodsTag);
-    }
-
-
-    /**
      * @return mixed
      */
     public function getNotifyUrl()
     {
         return $this->getParameter('notify_url');
-    }
-
-
-    public function setNotifyUrl($notifyUrl)
-    {
-        $this->setParameter('notify_url', $notifyUrl);
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getTradeType()
-    {
-        return $this->getParameter('trade_type');
-    }
-
-
-    /**
-     * @param mixed $tradeType
-     */
-    public function setTradeType($tradeType)
-    {
-        $this->setParameter('trade_type', $tradeType);
     }
 
 
@@ -312,20 +198,134 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $limitPay
-     */
-    public function setLimitPay($limitPay)
-    {
-        $this->setParameter('limit_pay', $limitPay);
-    }
-
-
-    /**
      * @return mixed
      */
     public function getOpenId()
     {
         return $this->getParameter('open_id');
+    }
+
+
+    /**
+     * @param mixed $deviceInfo
+     */
+    public function setDeviceInfo($deviceInfo)
+    {
+        $this->setParameter('device_Info', $deviceInfo);
+    }
+
+
+    /**
+     * @param mixed $body
+     */
+    public function setBody($body)
+    {
+        $this->setParameter('body', $body);
+    }
+
+
+    /**
+     * @param mixed $detail
+     */
+    public function setDetail($detail)
+    {
+        $this->setParameter('detail', $detail);
+    }
+
+
+    /**
+     * @param mixed $attach
+     */
+    public function setAttach($attach)
+    {
+        $this->setParameter('attach', $attach);
+    }
+
+
+    /**
+     * @param mixed $outTradeNo
+     */
+    public function setOutTradeNo($outTradeNo)
+    {
+        $this->setParameter('out_trade_no', $outTradeNo);
+    }
+
+
+    /**
+     * @param mixed $feeType
+     */
+    public function setFeeType($feeType)
+    {
+        $this->setParameter('fee_type', $feeType);
+    }
+
+
+    /**
+     * @param mixed $totalFee
+     */
+    public function setTotalFee($totalFee)
+    {
+        $this->setParameter('total_fee', $totalFee);
+    }
+
+
+    /**
+     * @param mixed $spbillCreateIp
+     */
+    public function setSpbillCreateIp($spbillCreateIp)
+    {
+        $this->setParameter('spbill_create_ip', $spbillCreateIp);
+    }
+
+
+    /**
+     * @param mixed $timeStart
+     */
+    public function setTimeStart($timeStart)
+    {
+        $this->setParameter('time_start', $timeStart);
+    }
+
+
+    /**
+     * @param mixed $timeExpire
+     */
+    public function setTimeExpire($timeExpire)
+    {
+        $this->setParameter('time_expire', $timeExpire);
+    }
+
+
+    /**
+     * @param mixed $goodsTag
+     */
+    public function setGoodsTag($goodsTag)
+    {
+        $this->setParameter('goods_tag', $goodsTag);
+    }
+
+
+    public function setNotifyUrl($notifyUrl)
+    {
+        $this->setParameter('notify_url', $notifyUrl);
+    }
+
+
+    /**
+     * @param mixed $tradeType
+     */
+    public function setTradeType($tradeType)
+    {
+        $this->setParameter('trade_type', $tradeType);
+    }
+
+
+    /**
+     * @param mixed $limitPay
+     */
+    public function setLimitPay($limitPay)
+    {
+        $this->setParameter('limit_pay', $limitPay);
     }
 
 
@@ -347,7 +347,9 @@ class CreateOrderRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $responseData = Helper::post($this->endpoint, $data);
+        $request      = $this->httpClient->post($this->endpoint)->setBody(Helper::array2xml($data));
+        $response     = $request->send()->getBody();
+        $responseData = Helper::xml2array($response);
 
         return $this->response = new CreateOrderResponse($this, $responseData);
     }

@@ -245,7 +245,10 @@ class RefundOrderRequest extends BaseAbstractRequest
             CURLOPT_SSLKEY         => $this->getKeyPath(),
         );
 
-        $responseData = Helper::post($this->endpoint, $data, 3, $options);
+        $responseData = Helper::xml2array(
+            $this->httpClient->post($this->endpoint, null, $data, $options)->setBody(Helper::array2xml($data))->send(
+            )->getBody()
+        );
 
         return $this->response = new CloseOrderResponse($this, $responseData);
     }

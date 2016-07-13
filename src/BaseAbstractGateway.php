@@ -7,12 +7,6 @@ use Omnipay\Common\AbstractGateway;
 abstract class BaseAbstractGateway extends AbstractGateway
 {
 
-    public function getTradeType()
-    {
-        return $this->getParameter('trade_type');
-    }
-
-
     public function setTradeType($tradeType)
     {
         $this->setParameter('trade_type', $tradeType);
@@ -113,6 +107,12 @@ abstract class BaseAbstractGateway extends AbstractGateway
         $parameters['trade_type'] = $this->getTradeType();
 
         return $this->createRequest('\Omnipay\WechatPay\Message\CreateOrderRequest', $parameters);
+    }
+
+
+    public function getTradeType()
+    {
+        return $this->getParameter('trade_type');
     }
 
 

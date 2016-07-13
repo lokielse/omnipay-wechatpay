@@ -39,20 +39,20 @@ class CreateMicroOrderResponse extends BaseAbstractResponse
     }
 
 
-    public function getCodeUrl()
+    public function getPrepayId()
     {
-        if ($this->isSuccessful() && $this->request->getTradeType() == 'NATIVE') {
-            return $this->getData()['code_url'];
+        if ($this->isSuccessful()) {
+            return $this->getData()['prepay_id'];
         } else {
             return null;
         }
     }
 
 
-    public function getPrepayId()
+    public function getCodeUrl()
     {
-        if ($this->isSuccessful()) {
-            return $this->getData()['prepay_id'];
+        if ($this->isSuccessful() && $this->request->getTradeType() == 'NATIVE') {
+            return $this->getData()['code_url'];
         } else {
             return null;
         }

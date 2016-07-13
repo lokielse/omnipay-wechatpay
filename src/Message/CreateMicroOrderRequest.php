@@ -25,14 +25,7 @@ class CreateMicroOrderRequest extends CreateOrderRequest
      */
     public function getData()
     {
-        $this->validate(
-            'app_id',
-            'mch_id',
-            'body',
-            'out_trade_no',
-            'total_fee',
-            'auth_code'
-        );
+        $this->validate('app_id', 'mch_id', 'body', 'out_trade_no', 'total_fee', 'auth_code');
 
         $data = array (
             'appid'            => $this->getAppId(),//*
@@ -59,7 +52,6 @@ class CreateMicroOrderRequest extends CreateOrderRequest
     }
 
 
-
     /**
      * @return mixed
      */
@@ -84,7 +76,9 @@ class CreateMicroOrderRequest extends CreateOrderRequest
      */
     public function sendData($data)
     {
-        $responseData = Helper::post($this->endpoint, $data);
+        $request      = $this->httpClient->post($this->endpoint)->setBody(Helper::array2xml($data));
+        $response     = $request->send()->getBody();
+        $responseData = Helper::xml2array($response);
 
         return $this->response = new CreateOrderResponse($this, $responseData);
     }

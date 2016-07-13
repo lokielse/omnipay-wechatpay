@@ -20,6 +20,7 @@ class NativeGateway extends BaseAbstractGateway
         return 'NATIVE';
     }
 
+
     /**
      * @param array $parameters
      *

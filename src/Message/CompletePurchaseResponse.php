@@ -24,6 +24,14 @@ class CompletePurchaseResponse extends AbstractResponse
     }
 
 
+    public function isPaid()
+    {
+        $data = $this->getData();
+
+        return $data['paid'];
+    }
+
+
     public function isSignMatch()
     {
         $data = $this->getData();
@@ -31,13 +39,6 @@ class CompletePurchaseResponse extends AbstractResponse
         return $data['sign_match'];
     }
 
-
-    public function isPaid()
-    {
-        $data = $this->getData();
-
-        return $data['paid'];
-    }
 
     public function getRequestData()
     {

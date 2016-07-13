@@ -21,7 +21,7 @@ class CreateOrderResponse extends BaseAbstractResponse
     public function getAppOrderData()
     {
         if ($this->isSuccessful()) {
-            $data = array(
+            $data = array (
                 'appid'     => $this->request->getAppId(),
                 'partnerid' => $this->request->getMchId(),
                 'prepayid'  => $this->getPrepayId(),
@@ -39,10 +39,22 @@ class CreateOrderResponse extends BaseAbstractResponse
     }
 
 
+    public function getPrepayId()
+    {
+        if ($this->isSuccessful()) {
+            $data = $this->getData();
+
+            return $data['prepay_id'];
+        } else {
+            return null;
+        }
+    }
+
+
     public function getJSOrderData()
     {
         if ($this->isSuccessful()) {
-            $data = array(
+            $data = array (
                 'appId'     => $this->request->getAppId(),
                 'package'   => 'prepay_id=' . $this->getPrepayId(),
                 'nonceStr'  => md5(uniqid()),
@@ -65,18 +77,6 @@ class CreateOrderResponse extends BaseAbstractResponse
             $data = $this->getData();
 
             return $data['code_url'];
-        } else {
-            return null;
-        }
-    }
-
-
-    public function getPrepayId()
-    {
-        if ($this->isSuccessful()) {
-            $data = $this->getData();
-
-            return $data['prepay_id'];
         } else {
             return null;
         }

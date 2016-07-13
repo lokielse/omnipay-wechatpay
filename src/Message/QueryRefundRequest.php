@@ -151,7 +151,9 @@ class QueryRefundRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $responseData = Helper::post($this->endpoint, $data);
+        $request      = $this->httpClient->post($this->endpoint)->setBody(Helper::array2xml($data));
+        $response     = $request->send()->getBody();
+        $responseData = Helper::xml2array($response);
 
         return $this->response = new QueryRefundResponse($this, $responseData);
     }
