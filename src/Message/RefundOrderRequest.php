@@ -2,6 +2,7 @@
 
 namespace Omnipay\WechatPay\Message;
 
+use Guzzle\Http\Client;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\WechatPay\Helper;
@@ -245,10 +246,11 @@ class RefundOrderRequest extends BaseAbstractRequest
             CURLOPT_SSLKEY         => $this->getKeyPath(),
         );
 
-        $responseData = Helper::xml2array(
-            $this->httpClient->post($this->endpoint, null, $data, $options)->setBody(Helper::array2xml($data))->send(
-            )->getBody()
-        );
+        $body         = Helper::array2xml($data);
+        $request      = $this->httpClient->post($this->endpoint, null, $data)->setBody($body);
+        $request->getCurlOptions()->merge($options);
+        $response     = $request->send()->getBody();
+        $responseData = Helper::xml2array($response);
 
         return $this->response = new CloseOrderResponse($this, $responseData);
     }
