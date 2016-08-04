@@ -58,7 +58,7 @@ class CreateOrderResponse extends BaseAbstractResponse
                 'appId'     => $this->request->getAppId(),
                 'package'   => 'prepay_id=' . $this->getPrepayId(),
                 'nonceStr'  => md5(uniqid()),
-                'timeStamp' => time(),
+                'timeStamp' => '' . time(),
             );
 
             $data['signType'] = 'MD5';
