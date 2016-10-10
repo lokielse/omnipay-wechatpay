@@ -248,7 +248,7 @@ class RefundOrderRequest extends BaseAbstractRequest
 
         $body         = Helper::array2xml($data);
         $request      = $this->httpClient->post($this->endpoint, null, $data)->setBody($body);
-        $request->getCurlOptions()->merge($options);
+        $request->getCurlOptions()->overwriteWith($options);
         $response     = $request->send()->getBody();
         $responseData = Helper::xml2array($response);
 
