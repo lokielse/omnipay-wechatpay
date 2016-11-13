@@ -16,12 +16,8 @@ processing library for PHP 5.3+. This package implements UnionPay support for Om
 Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply add it
 to your `composer.json` file:
 
-```json
-{
-    "require": {
-        "lokielse/omnipay-wechatpay": "dev-master"
-    }
-}
+```bash
+composer require lokielse/omnipay-wechatpay
 ```
 
 And run composer to update your dependencies:
