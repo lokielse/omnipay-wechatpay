@@ -30,7 +30,7 @@ The following gateways are provided by this package:
 * WechatPay (Wechat Common Gateway) 微信支付通用网关
 * WechatPay_App (Wechat App Gateway) 微信APP支付网关
 * WechatPay_Native (Wechat Native Gateway) 微信原生扫码支付支付网关
-* WechatPay_Js (Wechat Js API/MP Gateway) 微信网页、公众号支付网关
+* WechatPay_Js (Wechat Js API/MP Gateway) 微信网页、公众号、小程序支付网关
 * WechatPay_Pos (Wechat Micro/POS Gateway) 微信刷卡支付网关
 
 ## Usage
