@@ -37,7 +37,7 @@ class CreateMicroOrderRequest extends CreateOrderRequest
             'out_trade_no'     => $this->getOutTradeNo(),//*
             'fee_type'         => $this->getFeeType(),
             'total_fee'        => $this->getTotalFee(),//*
-            'spbill_create_ip' => $this->getClientIp() ?: $this->getServerIp(),//*
+            'spbill_create_ip' => $this->getSpbillCreateIp(),//*
             'goods_tag'        => $this->getGoodsTag(),
             'limit_pay'        => $this->getLimitPay(),
             'auth_code'        => $this->getAuthCode(),//*
