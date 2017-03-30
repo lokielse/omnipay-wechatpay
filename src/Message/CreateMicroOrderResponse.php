@@ -21,14 +21,14 @@ class CreateMicroOrderResponse extends BaseAbstractResponse
     public function getOrderData()
     {
         if ($this->isSuccessful()) {
-            $data = array (
+            $data = [
                 'app_id'    => $this->request->getAppId(),
                 'mch_id'    => $this->request->getMchId(),
                 'prepay_id' => $this->getPrepayId(),
                 'package'   => 'Sign=WXPay',
                 'nonce'     => md5(uniqid()),
-                'timestamp' => time(),
-            );
+                'timestamp' => time() . '',
+            ];
 
             $data['sign'] = Helper::sign($data, $this->request->getApiKey());
         } else {
