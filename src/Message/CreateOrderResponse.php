@@ -51,7 +51,7 @@ class CreateOrderResponse extends BaseAbstractResponse
     }
 
 
-    public function getJSOrderData()
+    public function getJsOrderData()
     {
         if ($this->isSuccessful()) {
             $data = array (
