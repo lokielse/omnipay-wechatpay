@@ -252,6 +252,6 @@ class RefundOrderRequest extends BaseAbstractRequest
         $response     = $request->send()->getBody();
         $responseData = Helper::xml2array($response);
 
-        return $this->response = new CloseOrderResponse($this, $responseData);
+        return $this->response = new RefundOrderResponse($this, $responseData);
     }
 }
