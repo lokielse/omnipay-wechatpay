@@ -20,6 +20,6 @@ abstract class BaseAbstractResponse extends AbstractResponse
     {
         $data = $this->getData();
 
-        return isset($data['result_code']) && $data['result_code'] == 'SUCCESS';
+        return isset($data['result_code']) && $data['result_code'] == 'SUCCESS' && $data['result_code'] == 'SUCCESS';
     }
 }
