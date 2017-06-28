@@ -30,13 +30,14 @@ The following gateways are provided by this package:
 * WechatPay_Native (Wechat Native Gateway) 微信原生扫码支付支付网关
 * WechatPay_Js (Wechat Js API/MP Gateway) 微信网页、公众号、小程序支付网关
 * WechatPay_Pos (Wechat Micro/POS Gateway) 微信刷卡支付网关
+* WechatPay_Mweb (Wechat H5 Gateway) 微信H5支付网关
 
 ## Usage
 
 ### Create Order [doc](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1)
 
 ```php
-//gateways: WechatPay_App, WechatPay_Native, WechatPay_Js, WechatPay_Pos
+//gateways: WechatPay_App, WechatPay_Native, WechatPay_Js, WechatPay_Pos, WechatPay_Mweb
 $gateway    = Omnipay::create('WechatPay_App');
 $gateway->setAppId($config['app_id']);
 $gateway->setMchId($config['mch_id']);
