@@ -42,6 +42,16 @@ class CreateOrderRequest extends BaseAbstractRequest
             $this->validate('open_id');
         }
 
+        $isSubMch = $this->getIsSubMch();
+
+        if($isSubMch === true)
+        {
+            $this->validate(
+                'sub_app_id',
+                'sub_mch_id'
+            );
+        }
+
         $data = array (
             'appid'            => $this->getAppId(),//*
             'mch_id'           => $this->getMchId(),
@@ -62,6 +72,12 @@ class CreateOrderRequest extends BaseAbstractRequest
             'openid'           => $this->getOpenId(),//*(trade_type=JSAPI)
             'nonce_str'        => md5(uniqid()),//*
         );
+
+        if($isSubMch === true)
+        {
+            $data['sub_appid'] = $this->getSubAppId();
+            $data['sub_mch_id'] = $this->getSubMchId();
+        }
 
         $data = array_filter($data);
 
