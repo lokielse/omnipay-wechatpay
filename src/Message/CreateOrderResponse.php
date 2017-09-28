@@ -82,6 +82,7 @@ class CreateOrderResponse extends BaseAbstractResponse
         }
     }
 
+
     public function getMwebUrl()
     {
         if ($this->isSuccessful() && $this->request->getTradeType() == 'MWEB') {
