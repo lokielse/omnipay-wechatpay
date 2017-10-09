@@ -3,7 +3,7 @@
 namespace Omnipay\WechatPay\Message;
 
 /**
- * Class UnifiedOrderRequest
+ * Class QueryOrderResponse
  * @package Omnipay\WechatPay\Message
  * @link    https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1
  */
