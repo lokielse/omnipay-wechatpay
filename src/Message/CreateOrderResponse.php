@@ -81,4 +81,16 @@ class CreateOrderResponse extends BaseAbstractResponse
             return null;
         }
     }
+
+
+    public function getMwebUrl()
+    {
+        if ($this->isSuccessful() && $this->request->getTradeType() == 'MWEB') {
+            $data = $this->getData();
+
+            return $data['mweb_url'];
+        } else {
+            return null;
+        }
+    }
 }
