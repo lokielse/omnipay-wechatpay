@@ -7,9 +7,10 @@ use Omnipay\WechatPay\Helper;
 
 /**
  * Class CreateOrderRequest
+ *
  * @package Omnipay\WechatPay\Message
- * @link    https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_1
- * @method CreateOrderResponse send()
+ * @link    https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1
+ * @method  CreateOrderResponse send()
  */
 class CreateOrderRequest extends BaseAbstractRequest
 {

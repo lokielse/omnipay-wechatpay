@@ -4,6 +4,13 @@ namespace Omnipay\WechatPay\Message;
 
 use Omnipay\WechatPay\Helper;
 
+/**
+ * Class CompleteRefundRequest
+ *
+ * @package Omnipay\WechatPay\Message
+ * @link    https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_16&index=10
+ * @method  CompletePurchaseResponse send()
+ */
 class CompleteRefundRequest extends BaseAbstractRequest
 {
 

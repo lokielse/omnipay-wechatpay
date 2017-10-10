@@ -8,9 +8,10 @@ use Omnipay\WechatPay\Helper;
 
 /**
  * Class CloseOrderRequest
+ *
  * @package Omnipay\WechatPay\Message
- * @link    https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_3&index=5
- * @method CloseOrderResponse send()
+ * @link    https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_3&index=5
+ * @method  CloseOrderResponse send()
  */
 class CloseOrderRequest extends BaseAbstractRequest
 {
