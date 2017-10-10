@@ -6,11 +6,11 @@ use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\WechatPay\Helper;
 
 /**
- *
  * Class CompletePurchaseRequest
+ *
  * @package Omnipay\WechatPay\Message
- * @link    https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_7&index=3
- * @method CompletePurchaseResponse send()
+ * @link    https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_7&index=3
+ * @method  CompletePurchaseResponse send()
  */
 class CompletePurchaseRequest extends BaseAbstractRequest
 {

@@ -8,9 +8,10 @@ use Omnipay\WechatPay\Helper;
 
 /**
  * Class DownloadBillRequest
+ *
  * @package Omnipay\WechatPay\Message
- * @link    https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_6&index=8
- * @method DownloadBillResponse send()
+ * @link    https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_8
+ * @method  DownloadBillResponse send()
  */
 class DownloadBillRequest extends BaseAbstractRequest
 {
