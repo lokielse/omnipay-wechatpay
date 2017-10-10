@@ -9,9 +9,10 @@ use Omnipay\WechatPay\Helper;
 
 /**
  * Class RefundOrderRequest
+ *
  * @package Omnipay\WechatPay\Message
  * @link    https://pay.weixin.qq.com/wiki/doc/api/app.php?chapter=9_4&index=6
- * @method RefundOrderResponse send()
+ * @method  RefundOrderResponse send()
  */
 class RefundOrderRequest extends BaseAbstractRequest
 {
