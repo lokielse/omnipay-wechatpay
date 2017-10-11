@@ -8,9 +8,10 @@ use Omnipay\WechatPay\Helper;
 
 /**
  * Class ShortenUrlRequest
+ *
  * @package Omnipay\WechatPay\Message
  * @link    https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_9&index=8
- * @method ShortenUrlResponse send()
+ * @method  ShortenUrlResponse send()
  */
 class ShortenUrlRequest extends BaseAbstractRequest
 {

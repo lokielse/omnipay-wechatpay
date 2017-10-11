@@ -7,9 +7,10 @@ use Omnipay\WechatPay\Helper;
 
 /**
  * Class CreateMicroOrderRequest
+ *
  * @package Omnipay\WechatPay\Message
  * @link    https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_10&index=1
- * @method CreateMicroOrderResponse send()
+ * @method  CreateMicroOrderResponse send()
  */
 class CreateMicroOrderRequest extends CreateOrderRequest
 {
