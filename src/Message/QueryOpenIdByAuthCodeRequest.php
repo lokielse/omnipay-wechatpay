@@ -8,9 +8,10 @@ use Omnipay\WechatPay\Helper;
 
 /**
  * Class QueryOpenIdByAuthCodeRequest
+ *
  * @package Omnipay\WechatPay\Message
  * @link    https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_13&index=9
- * @method QueryOpenIdByAuthCodeResponse send()
+ * @method  QueryOpenIdByAuthCodeResponse send()
  */
 class QueryOpenIdByAuthCodeRequest extends BaseAbstractRequest
 {
