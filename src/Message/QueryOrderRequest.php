@@ -15,7 +15,6 @@ use Omnipay\WechatPay\Helper;
  */
 class QueryOrderRequest extends BaseAbstractRequest
 {
-
     protected $endpoint = 'https://api.mch.weixin.qq.com/pay/orderquery';
 
 
@@ -31,10 +30,9 @@ class QueryOrderRequest extends BaseAbstractRequest
 
         if (! $this->getTransactionId() && ! $this->getOutTradeNo()) {
             throw new InvalidRequestException("The 'transaction_id' or 'out_trade_no' parameter is required");
-
         }
 
-        $data = array (
+        $data = array(
             'appid'          => $this->getAppId(),
             'mch_id'         => $this->getMchId(),
             'transaction_id' => $this->getTransactionId(),

@@ -15,7 +15,6 @@ use Omnipay\WechatPay\Helper;
  */
 class ShortenUrlRequest extends BaseAbstractRequest
 {
-
     protected $endpoint = 'https://api.mch.weixin.qq.com/tools/shorturl';
 
 
@@ -27,10 +26,9 @@ class ShortenUrlRequest extends BaseAbstractRequest
      */
     public function getData()
     {
-
         $this->validate('app_id', 'mch_id', 'long_url');
 
-        $data = array (
+        $data = array(
             'appid'     => $this->getAppId(),
             'mch_id'    => $this->getMchId(),
             'long_url'  => $this->getLongUrl(),

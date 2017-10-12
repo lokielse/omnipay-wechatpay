@@ -4,7 +4,6 @@ namespace Omnipay\WechatPay;
 
 class Helper
 {
-
     public static function array2xml($arr, $root = 'xml')
     {
         $xml = "<$root>";

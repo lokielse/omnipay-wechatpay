@@ -16,7 +16,6 @@ use Omnipay\WechatPay\Helper;
  */
 class RefundOrderRequest extends BaseAbstractRequest
 {
-
     protected $endpoint = 'https://api.mch.weixin.qq.com/secapi/pay/refund';
 
 
@@ -30,7 +29,7 @@ class RefundOrderRequest extends BaseAbstractRequest
     {
         $this->validate('app_id', 'mch_id', 'out_trade_no', 'cert_path', 'key_path');
 
-        $data = array (
+        $data = array(
             'appid'           => $this->getAppId(),
             'mch_id'          => $this->getMchId(),
             'device_info'     => $this->getDeviceInfo(),//<>
@@ -238,7 +237,7 @@ class RefundOrderRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $options = array (
+        $options = array(
             CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_SSL_VERIFYHOST => 2,
             CURLOPT_SSLCERTTYPE    => 'PEM',

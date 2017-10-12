@@ -37,11 +37,11 @@ class GatewayTest extends GatewayTestCase
 
     public function testPurchase()
     {
-        if($this->fuckTimeout){
+        if ($this->fuckTimeout) {
             return;
         }
 
-        $order = array (
+        $order = array(
             'body'         => date('YmdHis'), //Your order ID
             'out_trade_no' => date('YmdHis'), //Should be format 'YmdHis'
             'total_fee'    => 'My order title', //Order Title
@@ -63,12 +63,12 @@ class GatewayTest extends GatewayTestCase
 
     public function testCompletePurchase()
     {
-        if($this->fuckTimeout){
+        if ($this->fuckTimeout) {
             return;
         }
 
-        $options = array (
-            'request_params' => array (
+        $options = array(
+            'request_params' => array(
                 'appid'       => '123456',
                 'mch_id'      => '789456',
                 'result_code' => 'SUCCESS'
@@ -85,11 +85,11 @@ class GatewayTest extends GatewayTestCase
 
     public function testQuery()
     {
-        if($this->fuckTimeout){
+        if ($this->fuckTimeout) {
             return;
         }
 
-        $options = array (
+        $options = array(
             'transaction_id' => '3474813271258769001041842579301293446',
         );
 
@@ -103,11 +103,11 @@ class GatewayTest extends GatewayTestCase
 
     public function testClose()
     {
-        if($this->fuckTimeout){
+        if ($this->fuckTimeout) {
             return;
         }
 
-        $options = array (
+        $options = array(
             'out_trade_no' => '1234567891023',
         );
 
@@ -121,11 +121,11 @@ class GatewayTest extends GatewayTestCase
 
     public function testRefund()
     {
-        if($this->fuckTimeout){
+        if ($this->fuckTimeout) {
             return;
         }
 
-        $options = array (
+        $options = array(
             'transaction_id' => '1234567891023',
             'out_refund_no'  => '1234567891023',
             'total_fee'      => '100',
@@ -142,11 +142,11 @@ class GatewayTest extends GatewayTestCase
 
     public function testQueryRefund()
     {
-        if($this->fuckTimeout){
+        if ($this->fuckTimeout) {
             return;
         }
 
-        $options = array (
+        $options = array(
             'transaction_id' => '1234567891023',
         );
 
