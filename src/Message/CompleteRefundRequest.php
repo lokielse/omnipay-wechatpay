@@ -15,23 +15,7 @@ class CompleteRefundRequest extends BaseAbstractRequest
     public function sendData($data)
     {
         $data = $this->getData();
-        $sign = Helper::sign($data, $this->getApiKey());
-
-        $responseData = array ();
-
-        if (isset($data['sign']) && $data['sign'] && $sign === $data['sign']) {
-            $responseData['sign_match'] = true;
-        } else {
-            $responseData['sign_match'] = false;
-        }
-
-        if ($responseData['sign_match'] && isset($data['refund_status']) && $data['refund_status'] == 'SUCCESS') {
-            $responseData['refunded'] = true;
-        } else {
-            $responseData['refunded'] = false;
-        }
-
-        return $this->response = new CompleteRefundResponse($this, $responseData);
+        return $this->response = new CompleteRefundResponse($this, $data);
     }
 
     public function getData()
@@ -42,9 +26,17 @@ class CompleteRefundRequest extends BaseAbstractRequest
             $data = Helper::xml2array($data);
         }
 
+        $decryptData = $this->decryptData($data['req_info'], $this->getApiKey());
+        $data['req_info'] = $decryptData;
         return $data;
     }
 
+    protected function decryptData($encryptData, $key = '')
+    {
+        $md5LowerKey = strtolower(md5($key));
+        $decrypted = openssl_decrypt($encryptData, "AES-256-ECB", $md5LowerKey);
+        return Helper::xml2array($decrypted);
+    }
 
     public function getRequestParams()
     {

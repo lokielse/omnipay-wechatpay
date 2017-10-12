@@ -2,7 +2,6 @@
 
 namespace Omnipay\WechatPay;
 
-use Omnipay\Common\AbstractGateway;
 abstract class BaseAbstractGateway extends \Omnipay\Common\AbstractGateway
 {
     public function setTradeType($tradeType)

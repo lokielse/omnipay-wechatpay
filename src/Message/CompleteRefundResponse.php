@@ -16,17 +16,12 @@ class CompleteRefundResponse extends AbstractResponse
     {
         $data = $this->getData();
 
-        return $data['refunded'];
+        if (!empty($data['req_info']['refund_status']) && $data['req_info']['refund_status'] == 'SUCCESS') {
+            return true;
+        }
+
+        return false;
     }
-
-
-    public function isSignMatch()
-    {
-        $data = $this->getData();
-
-        return $data['sign_match'];
-    }
-
 
     public function getRequestData()
     {
