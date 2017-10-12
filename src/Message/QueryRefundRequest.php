@@ -15,7 +15,6 @@ use Omnipay\WechatPay\Helper;
  */
 class QueryRefundRequest extends BaseAbstractRequest
 {
-
     protected $endpoint = 'https://api.mch.weixin.qq.com/pay/refundquery';
 
 
@@ -37,7 +36,7 @@ class QueryRefundRequest extends BaseAbstractRequest
             throw new InvalidRequestException($message);
         }
 
-        $data = array (
+        $data = array(
             'appid'          => $this->getAppId(),
             'mch_id'         => $this->getMchId(),
             'device_info'    => $this->getDeviceInfo(),

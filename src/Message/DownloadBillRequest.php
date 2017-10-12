@@ -15,7 +15,6 @@ use Omnipay\WechatPay\Helper;
  */
 class DownloadBillRequest extends BaseAbstractRequest
 {
-
     protected $endpoint = 'https://api.mch.weixin.qq.com/pay/downloadbill';
 
 
@@ -29,7 +28,7 @@ class DownloadBillRequest extends BaseAbstractRequest
     {
         $this->validate('app_id', 'mch_id', 'bill_date');
 
-        $data = array (
+        $data = array(
             'appid'       => $this->getAppId(),
             'mch_id'      => $this->getMchId(),
             'device_info' => $this->getDeviceInfo(),
@@ -115,7 +114,7 @@ class DownloadBillRequest extends BaseAbstractRequest
     }
 
 
-    private function post($url, $data = array (), $timeout = 3)
+    private function post($url, $data = array(), $timeout = 3)
     {
         $ch = curl_init($url);
 
@@ -129,7 +128,7 @@ class DownloadBillRequest extends BaseAbstractRequest
         if (preg_match('#return_code#', $result)) {
             $result = Helper::xml2array($result);
         } else {
-            $result = array (['return_code' => 'SUCCESS', 'raw' => $result]);
+            $result = array(['return_code' => 'SUCCESS', 'raw' => $result]);
         }
 
         return $result;
