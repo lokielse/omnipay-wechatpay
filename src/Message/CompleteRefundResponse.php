@@ -12,7 +12,6 @@ use Omnipay\Common\Message\AbstractResponse;
  */
 class CompleteRefundResponse extends AbstractResponse
 {
-
     public function isSuccessful()
     {
         return $this->isRefunded();

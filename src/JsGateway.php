@@ -8,7 +8,6 @@ namespace Omnipay\WechatPay;
  */
 class JsGateway extends BaseAbstractGateway
 {
-
     public function getName()
     {
         return 'WechatPay JS API/MP';

@@ -10,7 +10,6 @@ namespace Omnipay\WechatPay\Message;
  */
 class ShortenUrlResponse extends BaseAbstractResponse
 {
-
     public function getShortUrl()
     {
         $data = $this->getData();

@@ -14,7 +14,6 @@ use Omnipay\WechatPay\Helper;
  */
 class CreateOrderRequest extends BaseAbstractRequest
 {
-
     protected $endpoint = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
 
 
@@ -43,7 +42,7 @@ class CreateOrderRequest extends BaseAbstractRequest
             $this->validate('open_id');
         }
 
-        $data = array (
+        $data = array(
             'appid'            => $this->getAppId(),//*
             'mch_id'           => $this->getMchId(),
             'device_info'      => $this->getDeviceInfo(),//*
