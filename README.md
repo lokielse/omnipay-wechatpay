@@ -7,7 +7,7 @@
 [![Total Downloads](https://poser.pugx.org/lokielse/omnipay-wechatpay/d/total.png)](https://packagist.org/packages/lokielse/omnipay-wechatpay)
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements UnionPay support for Omnipay.
+processing library for PHP 5.3+. This package implements WechatPay support for Omnipay.
 
 ## Installation
 
