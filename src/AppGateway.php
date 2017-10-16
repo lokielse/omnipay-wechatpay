@@ -8,7 +8,6 @@ namespace Omnipay\WechatPay;
  */
 class AppGateway extends BaseAbstractGateway
 {
-
     public function getName()
     {
         return 'WechatPay App';

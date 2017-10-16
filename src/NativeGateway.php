@@ -8,7 +8,6 @@ namespace Omnipay\WechatPay;
  */
 class NativeGateway extends BaseAbstractGateway
 {
-
     public function getName()
     {
         return 'WechatPay Native';
@@ -26,7 +25,7 @@ class NativeGateway extends BaseAbstractGateway
      *
      * @return \Omnipay\WechatPay\Message\ShortenUrlRequest
      */
-    public function shortenUrl($parameters = array ())
+    public function shortenUrl($parameters = array())
     {
         return $this->createRequest('\Omnipay\WechatPay\Message\ShortenUrlRequest', $parameters);
     }

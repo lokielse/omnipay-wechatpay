@@ -10,5 +10,4 @@ namespace Omnipay\WechatPay\Message;
  */
 class DownloadBillResponse extends BaseAbstractResponse
 {
-
 }

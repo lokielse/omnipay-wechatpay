@@ -10,7 +10,6 @@ namespace Omnipay\WechatPay\Message;
  */
 class QueryOpenIdByAuthCodeResponse extends BaseAbstractResponse
 {
-
     public function getOpenId()
     {
         $data = $this->getData();
