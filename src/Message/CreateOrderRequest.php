@@ -43,24 +43,24 @@ class CreateOrderRequest extends BaseAbstractRequest
         }
 
         $data = array(
-            'appid'            => $this->getAppId(),//*
+            'appid'            => $this->getAppId(),          //*
             'mch_id'           => $this->getMchId(),
-            'device_info'      => $this->getDeviceInfo(),//*
-            'body'             => $this->getBody(),//*
+            'device_info'      => $this->getDeviceInfo(),     //*
+            'body'             => $this->getBody(),           //*
             'detail'           => $this->getDetail(),
             'attach'           => $this->getAttach(),
-            'out_trade_no'     => $this->getOutTradeNo(),//*
+            'out_trade_no'     => $this->getOutTradeNo(),     //*
             'fee_type'         => $this->getFeeType(),
-            'total_fee'        => $this->getTotalFee(),//*
-            'spbill_create_ip' => $this->getSpbillCreateIp(),//*
-            'time_start'       => $this->getTimeStart(),//yyyyMMddHHmmss
-            'time_expire'      => $this->getTimeExpire(),//yyyyMMddHHmmss
+            'total_fee'        => $this->getTotalFee(),       //*
+            'spbill_create_ip' => $this->getSpbillCreateIp(), //*
+            'time_start'       => $this->getTimeStart(),      //yyyyMMddHHmmss
+            'time_expire'      => $this->getTimeExpire(),     //yyyyMMddHHmmss
             'goods_tag'        => $this->getGoodsTag(),
-            'notify_url'       => $this->getNotifyUrl(), //*
-            'trade_type'       => $this->getTradeType(), //*
+            'notify_url'       => $this->getNotifyUrl(),      //*
+            'trade_type'       => $this->getTradeType(),      //*
             'limit_pay'        => $this->getLimitPay(),
-            'openid'           => $this->getOpenId(),//*(trade_type=JSAPI)
-            'nonce_str'        => md5(uniqid()),//*
+            'openid'           => $this->getOpenId(),         //*(trade_type=JSAPI)
+            'nonce_str'        => md5(uniqid()),              //*
         );
 
         $data = array_filter($data);
