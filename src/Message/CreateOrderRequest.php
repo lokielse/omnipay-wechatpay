@@ -330,11 +330,11 @@ class CreateOrderRequest extends BaseAbstractRequest
 
 
     /**
-     * @param mixed $openId
+     * @param mixed $open_id
      */
-    public function setOpenId($openId)
+    public function setOpenId($open_id)
     {
-        $this->setParameter('openid', $openId);
+        $this->setParameter('openid', $open_id);
     }
 
 
