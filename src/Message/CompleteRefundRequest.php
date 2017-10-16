@@ -12,7 +12,6 @@ use Omnipay\WechatPay\Helper;
  */
 class CompleteRefundRequest extends BaseAbstractRequest
 {
-
     public function setRequestParams($requestParams)
     {
         $this->setParameter('request_params', $requestParams);
@@ -23,7 +22,7 @@ class CompleteRefundRequest extends BaseAbstractRequest
         $data = $this->getData();
         $sign = Helper::sign($data, $this->getApiKey());
 
-        $responseData = array ();
+        $responseData = array();
 
         if (isset($data['sign']) && $data['sign'] && $sign === $data['sign']) {
             $responseData['sign_match'] = true;
