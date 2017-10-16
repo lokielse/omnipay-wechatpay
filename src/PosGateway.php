@@ -8,7 +8,6 @@ namespace Omnipay\WechatPay;
  */
 class PosGateway extends BaseAbstractGateway
 {
-
     public function getName()
     {
         return 'WechatPay Pos';
@@ -20,7 +19,7 @@ class PosGateway extends BaseAbstractGateway
      *
      * @return \Omnipay\WechatPay\Message\CreateOrderRequest
      */
-    public function purchase($parameters = array ())
+    public function purchase($parameters = array())
     {
         $parameters['trade_type'] = $this->getTradeType();
 
@@ -33,7 +32,7 @@ class PosGateway extends BaseAbstractGateway
      *
      * @return \Omnipay\WechatPay\Message\QueryOpenIdByAuthCodeRequest
      */
-    public function queryOpenId($parameters = array ())
+    public function queryOpenId($parameters = array())
     {
         return $this->createRequest('\Omnipay\WechatPay\Message\QueryOpenIdByAuthCodeRequest', $parameters);
     }

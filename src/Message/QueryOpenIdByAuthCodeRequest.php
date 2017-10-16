@@ -15,7 +15,6 @@ use Omnipay\WechatPay\Helper;
  */
 class QueryOpenIdByAuthCodeRequest extends BaseAbstractRequest
 {
-
     protected $endpoint = 'https://api.mch.weixin.qq.com/tools/authcodetoopenid';
 
 
@@ -27,10 +26,9 @@ class QueryOpenIdByAuthCodeRequest extends BaseAbstractRequest
      */
     public function getData()
     {
-
         $this->validate('app_id', 'mch_id', 'auth_code');
 
-        $data = array (
+        $data = array(
             'appid'     => $this->getAppId(),
             'mch_id'    => $this->getMchId(),
             'auth_code' => $this->getAuthCode(),
