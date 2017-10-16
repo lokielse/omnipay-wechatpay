@@ -9,7 +9,6 @@ use Omnipay\WechatPay\Helper;
  *
  * @package Omnipay\WechatPay\Message
  * @link    https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_16&index=10
- * @method  CompletePurchaseResponse send()
  */
 class CompleteRefundRequest extends BaseAbstractRequest
 {
@@ -46,6 +45,21 @@ class CompleteRefundRequest extends BaseAbstractRequest
 
         if (is_string($data)) {
             $data = Helper::xml2array($data);
+        }
+
+        // 微信: 退款结果对重要的数据进行了加密
+        if (isset($data['req_info'])) {
+            $encrypted_data = openssl_decrypt(
+                base64_decode($data['req_info']),
+                'AES-256-ECB',
+                md5($this->getApiKey()),
+                OPENSSL_RAW_DATA
+            );
+
+            if (is_string($encrypted_data)) {
+                unset($data['req_info']);
+                $data = array_merge($data, Helper::xml2array($encrypted_data));
+            }
         }
 
         return $data;
