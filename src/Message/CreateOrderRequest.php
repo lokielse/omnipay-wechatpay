@@ -39,7 +39,7 @@ class CreateOrderRequest extends BaseAbstractRequest
         $tradeType = strtoupper($this->getTradeType());
 
         if ($tradeType == 'JSAPI') {
-            $this->validate('open_id');
+            $this->validate('openid');
         }
 
         $data = array(
@@ -202,7 +202,7 @@ class CreateOrderRequest extends BaseAbstractRequest
      */
     public function getOpenId()
     {
-        return $this->getParameter('open_id');
+        return $this->getParameter('openid');
     }
 
 
@@ -334,7 +334,7 @@ class CreateOrderRequest extends BaseAbstractRequest
      */
     public function setOpenId($openId)
     {
-        $this->setParameter('open_id', $openId);
+        $this->setParameter('openid', $openId);
     }
 
 
