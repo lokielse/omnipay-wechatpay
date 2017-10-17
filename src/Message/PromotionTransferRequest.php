@@ -35,7 +35,7 @@ class PromotionTransferRequest extends BaseAbstractRequest
             'device_info'      => $this->getDeviceInfo(),     // <optional>
             'partner_trade_no' => $this->getPartnerTradeNo(),
             'openid'           => $this->getOpenId(),
-            'check_name'       => $this->getCheckName(),
+            'check_name'       => $this->getCheckName(),      // <NO_CHECK or FORCE_CHECK>
             're_user_name'     => $this->getReUserName(),
             'amount'           => $this->getAmount(),
             'desc'             => $this->getDesc(),
