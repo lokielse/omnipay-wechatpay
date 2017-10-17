@@ -178,6 +178,17 @@ abstract class BaseAbstractGateway extends AbstractGateway
     /**
      * @param array $parameters
      *
+     * @return \Omnipay\WechatPay\Message\PromotionTransferRequest
+     */
+    public function transfer($parameters = array())
+    {
+        return $this->createRequest('\Omnipay\WechatPay\Message\PromotionTransferRequest', $parameters);
+    }
+
+
+    /**
+     * @param array $parameters
+     *
      * @return \Omnipay\WechatPay\Message\DownloadBillRequest
      */
     public function downloadBill($parameters = array())
