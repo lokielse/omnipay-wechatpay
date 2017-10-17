@@ -27,7 +27,7 @@ class PromotionTransferRequest extends BaseAbstractRequest
      */
     public function getData()
     {
-        $this->validate('app_id', 'mch_id', 'partner_trade_no');
+        $this->validate('app_id', 'mch_id', 'partner_trade_no', 'cert_path', 'key_path');
 
         $data = array(
             'mch_appid'        => $this->getAppId(),
