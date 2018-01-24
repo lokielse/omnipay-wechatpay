@@ -63,4 +63,40 @@ abstract class BaseAbstractRequest extends AbstractRequest
     {
         $this->setParameter('mch_id', $mchId);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSubMchId()
+    {
+        return $this->getParameter('sub_mch_id');
+    }
+
+
+    /**
+     * @param mixed $subMchId
+     */
+    public function setSubMchId($mchId)
+    {
+        $this->setParameter('sub_mch_id', $mchId);
+    }
+
+    /**
+     * 子商户 app_id
+     *
+     * @return mixed
+     */
+    public function getSubAppId()
+    {
+        return $this->getParameter('sub_appid');
+    }
+
+
+    /**
+     * @param mixed $subAppId
+     */
+    public function setSubAppId($subAppId)
+    {
+        $this->setParameter('sub_appid', $subAppId);
+    }
 }

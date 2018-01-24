@@ -30,6 +30,7 @@ class CreateMicroOrderRequest extends CreateOrderRequest
         $data = array(
             'appid'            => $this->getAppId(),//*
             'mch_id'           => $this->getMchId(),
+            'sub_mch_id'       => $this->getSubMchId(),
             'device_info'      => $this->getDeviceInfo(),//*
             'body'             => $this->getBody(),//*
             'detail'           => $this->getDetail(),

@@ -31,6 +31,8 @@ class CloseOrderRequest extends BaseAbstractRequest
         $data = array(
             'appid'        => $this->getAppId(),
             'mch_id'       => $this->getMchId(),
+            'sub_appid'    => $this->getSubAppId(),
+            'sub_mch_id'   => $this->getSubMchId(),
             'out_trade_no' => $this->getOutTradeNo(),
             'nonce_str'    => md5(uniqid()),
         );
