@@ -31,6 +31,7 @@ class ShortenUrlRequest extends BaseAbstractRequest
         $data = array(
             'appid'     => $this->getAppId(),
             'mch_id'    => $this->getMchId(),
+            'sub_mch_id'=> $this->getSubMchId(),
             'long_url'  => $this->getLongUrl(),
             'nonce_str' => md5(uniqid()),
         );
