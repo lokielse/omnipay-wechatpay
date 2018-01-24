@@ -31,6 +31,7 @@ class QueryOpenIdByAuthCodeRequest extends BaseAbstractRequest
         $data = array(
             'appid'     => $this->getAppId(),
             'mch_id'    => $this->getMchId(),
+            'sub_mch_id'  => $this->getSubMchId(),
             'auth_code' => $this->getAuthCode(),
             'nonce_str' => md5(uniqid()),
         );

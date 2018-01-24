@@ -31,6 +31,8 @@ class DownloadBillRequest extends BaseAbstractRequest
         $data = array(
             'appid'       => $this->getAppId(),
             'mch_id'      => $this->getMchId(),
+            'sub_appid'   => $this->getSubAppId(),
+            'sub_mch_id'  => $this->getSubMchId(),
             'device_info' => $this->getDeviceInfo(),
             'bill_date'   => $this->getBillDate(),
             'bill_type'   => $this->getBillType(),//<>
