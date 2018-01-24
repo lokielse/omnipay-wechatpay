@@ -32,6 +32,8 @@ class RefundOrderRequest extends BaseAbstractRequest
         $data = array(
             'appid'           => $this->getAppId(),
             'mch_id'          => $this->getMchId(),
+            'sub_appid'       => $this->getSubAppId(),
+            'sub_mch_id'      => $this->getSubMchId(),
             'device_info'     => $this->getDeviceInfo(),//<>
             'transaction_id'  => $this->getTransactionId(),
             'out_trade_no'    => $this->getOutTradeNo(),
