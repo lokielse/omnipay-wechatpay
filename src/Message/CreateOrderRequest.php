@@ -346,13 +346,15 @@ class CreateOrderRequest extends BaseAbstractRequest
      * @param  mixed $data The data to send
      *
      * @return ResponseInterface
+     * @throws \Psr\Http\Client\Exception\NetworkException
+     * @throws \Psr\Http\Client\Exception\RequestException
      */
     public function sendData($data)
     {
-        $request      = $this->httpClient->post($this->endpoint)->setBody(Helper::array2xml($data));
-        $response     = $request->send()->getBody();
-        $responseData = Helper::xml2array($response);
+        $body     = Helper::array2xml($data);
+        $response = $this->httpClient->request('POST', $this->endpoint, [], $body)->getBody();
+        $payload  = Helper::xml2array($response);
 
-        return $this->response = new CreateOrderResponse($this, $responseData);
+        return $this->response = new CreateOrderResponse($this, $payload);
     }
 }

@@ -20,7 +20,7 @@ class GatewayTest extends GatewayTestCase
 
     protected $options;
 
-    protected $fuckTimeout = true;
+    protected $fuckTimeout = false;
 
 
     public function setUp()
@@ -28,7 +28,7 @@ class GatewayTest extends GatewayTestCase
         parent::setUp();
         $this->gateway = Omnipay::create('WechatPay');
         $this->gateway->setAppId('123456789');
-        $this->gateway->setMchId('123456789');
+        $this->gateway->setMchId('4567891011');
         $this->gateway->setApiKey('XXSXXXSXXSXXSX');
         $this->gateway->setNotifyUrl('http://example.com/notify');
         $this->gateway->setTradeType('APP');
@@ -42,13 +42,9 @@ class GatewayTest extends GatewayTestCase
         }
 
         $order = array(
-            'body'         => date('YmdHis'), //Your order ID
-            'out_trade_no' => date('YmdHis'), //Should be format 'YmdHis'
-            'total_fee'    => 'My order title', //Order Title
-            'client_ip'    => '114.119.110.120', //Order Total Fee
+            'outTrade_No'       => '1112',//date('YmdHis'), //Should be format 'YmdHis'
+            'totalfee'         => '0.01', //Order Title
             'body'             => 'test', //Your order ID
-            'out_trade_no'     => date('YmdHis'), //Should be format 'YmdHis'
-            'total_fee'        => '0.01', //Order Title
             'spbill_create_ip' => '114.119.110.120', //Order Total Fee
         );
 
