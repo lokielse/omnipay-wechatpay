@@ -3,14 +3,14 @@
 namespace Omnipay\WechatPay;
 
 use Omnipay\Omnipay;
-use Omnipay\Tests\GatewayTestCase;
+use Omnipay\Tests\TestCase;
 use Omnipay\WechatPay\Message\CloseOrderResponse;
 use Omnipay\WechatPay\Message\CompletePurchaseResponse;
 use Omnipay\WechatPay\Message\CreateOrderResponse;
 use Omnipay\WechatPay\Message\QueryOrderResponse;
 use Omnipay\WechatPay\Message\RefundOrderResponse;
 
-class GatewayTest extends GatewayTestCase
+class GatewayTest extends TestCase
 {
 
     /**
@@ -42,7 +42,7 @@ class GatewayTest extends GatewayTestCase
         }
 
         $order = array(
-            'outTrade_No'       => '1112',//date('YmdHis'), //Should be format 'YmdHis'
+            'outTrade_No'      => '1112',//date('YmdHis'), //Should be format 'YmdHis'
             'totalfee'         => '0.01', //Order Title
             'body'             => 'test', //Your order ID
             'spbill_create_ip' => '114.119.110.120', //Order Total Fee
