@@ -236,17 +236,23 @@ class RefundOrderRequest extends BaseAbstractRequest
      * @param  mixed $data The data to send
      *
      * @return ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function sendData($data)
     {
         $body = Helper::array2xml($data);
+
         $client = new Client();
-        $result = $client->request('POST', $this->endpoint, [
+
+        $options = [
             'body'    => $body,
             'verify'  => true,
             'cert'    => $this->getCertPath(),
             'ssl_key' => $this->getKeyPath(),
-        ])->getBody()->getContents();
+        ];
+
+        $result = $client->request('POST', $this->endpoint, $options)->getBody()->getContents();
+
         $responseData = Helper::xml2array($result);
 
         return $this->response = new RefundOrderResponse($this, $responseData);
