@@ -2,7 +2,7 @@
 
 namespace Omnipay\WechatPay\Message;
 
-use Guzzle\Http\Client;
+use GuzzleHttp\Client;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\WechatPay\Helper;
@@ -29,7 +29,7 @@ class RefundOrderRequest extends BaseAbstractRequest
     {
         $this->validate('app_id', 'mch_id', 'out_trade_no', 'cert_path', 'key_path');
 
-        $data = array(
+        $data = [
             'appid'           => $this->getAppId(),
             'mch_id'          => $this->getMchId(),
             'sub_appid'       => $this->getSubAppId(),
@@ -43,7 +43,7 @@ class RefundOrderRequest extends BaseAbstractRequest
             'refund_fee_type' => $this->getRefundFee(),//<>
             'op_user_id'      => $this->getOpUserId() ?: $this->getMchId(),
             'nonce_str'       => md5(uniqid()),
-        );
+        ];
 
         $data = array_filter($data);
 
@@ -239,20 +239,15 @@ class RefundOrderRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $options = array(
-            CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_SSL_VERIFYHOST => 2,
-            CURLOPT_SSLCERTTYPE    => 'PEM',
-            CURLOPT_SSLKEYTYPE     => 'PEM',
-            CURLOPT_SSLCERT        => $this->getCertPath(),
-            CURLOPT_SSLKEY         => $this->getKeyPath(),
-        );
-
-        $body         = Helper::array2xml($data);
-        $request      = $this->httpClient->post($this->endpoint, null, $data)->setBody($body);
-        $request->getCurlOptions()->overwriteWith($options);
-        $response     = $request->send()->getBody();
-        $responseData = Helper::xml2array($response);
+        $body = Helper::array2xml($data);
+        $client = new Client();
+        $result = $client->request('POST', $this->endpoint, [
+            'body'    => $body,
+            'verify'  => true,
+            'cert'    => $this->getCertPath(),
+            'ssl_key' => $this->getKeyPath(),
+        ])->getBody()->getContents();
+        $responseData = Helper::xml2array($result);
 
         return $this->response = new RefundOrderResponse($this, $responseData);
     }
