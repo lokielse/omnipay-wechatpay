@@ -145,7 +145,7 @@ var_dump($response->getShortUrl());
 
 ### Query OpenId (for `WechatPay_Pos`) [doc](https://pay.weixin.qq.com/wiki/doc/api/micropay.php?chapter=9_13&index=9)
 ```php
-$response = $gateway->shortenUrl([
+$response = $gateway->queryOpenId([
     'auth_code' => $authCode
 ])->send();
 
