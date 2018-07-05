@@ -22,7 +22,7 @@ class Helper
 
     public static function xml2array($xml)
     {
-        $data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true) || [];
+        $data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true) ?? [];
 
         if (! is_array($data)) {
             $data = [];
