@@ -11,14 +11,9 @@ processing library for PHP 5.3+. This package implements WechatPay support for O
 
 ## Installation
 
-Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply add it
-to your `composer.json` file:
+Omnipay is installed via [Composer](http://getcomposer.org/). To install:
 
-    "lokielse/omnipay-wechatpay": "^1.0",
-
-And run composer to update your dependencies:
-
-    $ composer update -vvv
+    composer require lokielse/omnipay-wechatpay
 
 ## Basic Usage
 
