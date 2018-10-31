@@ -250,9 +250,7 @@ class PromotionTransferRequest extends BaseAbstractRequest
         );
 
         $body         = Helper::array2xml($data);
-        $request      = $this->httpClient->post($this->endpoint, null, $data)->setBody($body);
-        $request->getCurlOptions()->overwriteWith($options);
-        $response     = $request->send()->getBody();
+        $response = $this->httpClient->request('POST', $this->endpoint, [], $body)->getBody();
         $responseData = Helper::xml2array($response);
 
         return $this->response = new PromotionTransferResponse($this, $responseData);
