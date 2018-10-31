@@ -15,6 +15,7 @@
     "微信支付"
   ],
   "homepage": "https://github.com/sunanzhi/omnipay-wechatpay",
+  "minimum-stability": "dev",
   "license": "MIT",
   "authors": [
     {
