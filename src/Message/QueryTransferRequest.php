@@ -116,9 +116,8 @@ class QueryTransferRequest extends BaseAbstractRequest
         );
 
         $body         = Helper::array2xml($data);
-        $request      = $this->httpClient->post($this->endpoint, null, $data)->setBody($body);
-        $request->getCurlOptions()->overwriteWith($options);
-        $response     = $request->send()->getBody();
+        $request      = $this->httpClient->request('POST', $this->endpoint, $options, $body);
+        $response     = $request->getBody();
         $responseData = Helper::xml2array($response);
 
         return $this->response = new QueryTransferResponse($this, $responseData);
