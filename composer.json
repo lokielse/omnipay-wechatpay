@@ -1,5 +1,5 @@
 {
-  "name": "sunanzhi/omnipay-wechatpay",
+  "name": "lokielse/omnipay-wechatpay",
   "type": "library",
   "description": "Wechat gateway for Omnipay payment processing library",
   "keywords": [
@@ -14,13 +14,12 @@
     "purchase",
     "微信支付"
   ],
-  "homepage": "https://github.com/sunanzhi/omnipay-wechatpay",
-  "minimum-stability": "dev",
+  "homepage": "https://github.com/lokielse/omnipay-wechatpay",
   "license": "MIT",
   "authors": [
     {
-      "name": "sunanzhi",
-      "email": "sunanzhi@hotmail.com"
+      "name": "Loki Else",
+      "email": "lokielse@gmail.com"
     }
   ],
   "autoload": {
