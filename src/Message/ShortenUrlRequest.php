@@ -71,8 +71,8 @@ class ShortenUrlRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $request      = $this->httpClient->post($this->endpoint)->setBody(Helper::array2xml($data));
-        $response     = $request->send()->getBody();
+        $request      = $this->httpClient->request('POST', $this->endpoint, [], Helper::array2xml($data));
+        $response     = $request->getBody();
         $responseData = Helper::xml2array($response);
 
         return $this->response = new ShortenUrlResponse($this, $responseData);
