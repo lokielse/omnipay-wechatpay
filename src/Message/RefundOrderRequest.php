@@ -42,6 +42,7 @@ class RefundOrderRequest extends BaseAbstractRequest
             'refund_fee'      => $this->getRefundFee(),
             'refund_fee_type' => $this->getRefundFee(),//<>
             'op_user_id'      => $this->getOpUserId() ?: $this->getMchId(),
+            'refund_account'  => $this->getRefundAccount(),
             'nonce_str'       => md5(uniqid()),
         ];
 
@@ -50,6 +51,22 @@ class RefundOrderRequest extends BaseAbstractRequest
         $data['sign'] = Helper::sign($data, $this->getApiKey());
 
         return $data;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRefundAccount()
+    {
+        return $this->getParameter('refund_account');
+    }
+
+    /**
+     * @param mixed $refundAccount
+     */
+    public function setRefundAccount($refundAccount)
+    {
+        $this->setParameter('refund_account', $refundAccount);
     }
 
 
