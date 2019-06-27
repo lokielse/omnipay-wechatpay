@@ -31,7 +31,7 @@ class PayBankRequest extends BaseAbstractRequest
         $data = array(
             'mch_id'           => $this->getMchId(),
             'partner_trade_no' => $this->getPartnerTradeNo(),
-            'enc_bank_no'      => $this->getEncBankNo(),      
+            'enc_bank_no'      => $this->getEncBankNo(),
             'enc_true_name'    => $this->getEncTrueName(),
             'bank_code'        => $this->getBankCode(),
             'amount'           => $this->getAmount(),
