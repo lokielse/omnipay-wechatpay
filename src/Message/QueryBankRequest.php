@@ -8,15 +8,15 @@ use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\WechatPay\Helper;
 
 /**
- * Class GetPublicKeyRequest
+ * Class QueryBankRequest
  *
  * @package Omnipay\WechatPay\Message
- * @link    https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=24_7
- * @method  GetPublicKeyResponse send()
+ * @link    https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=24_3
+ * @method  QueryBankResponse send()
  */
-class GetPublicKeyRequest extends BaseAbstractRequest
+class QueryBankRequest extends BaseAbstractRequest
 {
-    protected $endpoint = 'https://fraud.mch.weixin.qq.com/risk/getpublickey';
+    protected $endpoint = 'https://api.mch.weixin.qq.com/mmpaysptrans/query_bank';
 
     /**
      * Get the raw data array for this message. The format of this varies from gateway to
@@ -26,10 +26,11 @@ class GetPublicKeyRequest extends BaseAbstractRequest
      */
     public function getData()
     {
-        $this->validate('mch_id', 'cert_path', 'key_path');
+        $this->validate('mch_id', 'partner_trade_no', 'cert_path', 'key_path');
 
         $data = array(
             'mch_id'           => $this->getMchId(),
+            'partner_trade_no' => $this->getPartnerTradeNo(),
             'nonce_str'        => md5(uniqid()),
         );
 
@@ -38,6 +39,24 @@ class GetPublicKeyRequest extends BaseAbstractRequest
         $data['sign'] = Helper::sign($data, $this->getApiKey());
 
         return $data;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getPartnerTradeNo()
+    {
+        return $this->getParameter('partner_trade_no');
+    }
+
+
+    /**
+     * @param mixed $partnerTradeNo
+     */
+    public function setPartnerTradeNo($partnerTradeNo)
+    {
+        $this->setParameter('partner_trade_no', $partnerTradeNo);
     }
 
 
@@ -98,6 +117,6 @@ class GetPublicKeyRequest extends BaseAbstractRequest
         $response = $client->request('POST', $this->endpoint, $options)->getBody();
         $responseData = Helper::xml2array($response);
         
-        return $this->response = new GetPublicKeyResponse($this, $responseData);
+        return $this->response = new QueryBankResponse($this, $responseData);
     }
 }
