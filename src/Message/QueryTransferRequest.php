@@ -2,6 +2,7 @@
 
 namespace Omnipay\WechatPay\Message;
 
+use GuzzleHttp\Client;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\WechatPay\Helper;
@@ -106,18 +107,16 @@ class QueryTransferRequest extends BaseAbstractRequest
      */
     public function sendData($data)
     {
-        $options = array(
-            CURLOPT_SSL_VERIFYPEER => true,
-            CURLOPT_SSL_VERIFYHOST => 2,
-            CURLOPT_SSLCERTTYPE    => 'PEM',
-            CURLOPT_SSLKEYTYPE     => 'PEM',
-            CURLOPT_SSLCERT        => $this->getCertPath(),
-            CURLOPT_SSLKEY         => $this->getKeyPath(),
-        );
-
         $body         = Helper::array2xml($data);
-        $request      = $this->httpClient->request('POST', $this->endpoint, $options, $body);
-        $response     = $request->getBody();
+        $client       = new Client();
+
+        $options = [
+            'body'    => $body,
+            'verify'  => true,
+            'cert'    => $this->getCertPath(),
+            'ssl_key' => $this->getKeyPath(),
+        ];
+        $response = $client->request('POST', $this->endpoint, $options)->getBody();
         $responseData = Helper::xml2array($response);
 
         return $this->response = new QueryTransferResponse($this, $responseData);
