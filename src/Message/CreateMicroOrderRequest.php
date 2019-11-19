@@ -14,8 +14,9 @@ use Omnipay\WechatPay\Helper;
  */
 class CreateMicroOrderRequest extends CreateOrderRequest
 {
-    protected $endpoint = 'https://api.mch.weixin.qq.com/pay/micropay';
+    protected $endpoint        = 'https://api.mch.weixin.qq.com/pay/micropay';
 
+    protected $sandboxEndpoint = 'https://api.mch.weixin.qq.com/sandboxnew/pay/micropay';
 
     /**
      * Get the raw data array for this message. The format of this varies from gateway to
@@ -77,7 +78,7 @@ class CreateMicroOrderRequest extends CreateOrderRequest
      */
     public function sendData($data)
     {
-        $request      = $this->httpClient->request('POST', $this->endpoint, [], Helper::array2xml($data));
+        $request      = $this->httpClient->request('POST', $this->getEndpoint(), [], Helper::array2xml($data));
         $response     = $request->getBody();
         $responseData = Helper::xml2array($response);
 

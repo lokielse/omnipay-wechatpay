@@ -6,6 +6,13 @@ use Omnipay\Common\AbstractGateway;
 
 abstract class BaseAbstractGateway extends AbstractGateway
 {
+    public function getDefaultParameters()
+    {
+        return array(
+           'environment' => 'production'
+        );
+    }
+
     public function setTradeType($tradeType)
     {
         $this->setParameter('trade_type', $tradeType);
