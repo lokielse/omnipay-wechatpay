@@ -13,6 +13,16 @@ abstract class BaseAbstractGateway extends AbstractGateway
         );
     }
 
+    public function getEnvironment()
+    {
+        return $this->getParameter('environment');
+    }
+
+    public function setEnvironment($environment)
+    {
+        $this->setParameter('environment', $environment);
+    }
+
     public function setTradeType($tradeType)
     {
         $this->setParameter('trade_type', $tradeType);
