@@ -17,7 +17,7 @@ use Omnipay\WechatPay\Helper;
 class SandboxGetSignKeyRequest
     extends BaseAbstractRequest
 {
-    protected $endpoint = 'https://api.mch.weixin.qq.com/sandboxnew/pay/getsignkey';
+    protected $sandboxEndpoint = 'https://api.mch.weixin.qq.com/sandboxnew/pay/getsignkey';
 
     /**
      * Get the raw data array for this message. The format of this varies from gateway to
@@ -55,7 +55,7 @@ class SandboxGetSignKeyRequest
      */
     public function sendData($data)
     {
-        $request      = $this->httpClient->request('POST', $this->endpoint, [], Helper::array2xml($data));
+        $request      = $this->httpClient->request('POST', $this->sandboxEndpoint, [], Helper::array2xml($data));
         $response     = $request->getBody();
         $responseData = Helper::xml2array($response);
 
