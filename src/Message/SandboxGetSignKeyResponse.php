@@ -30,4 +30,9 @@ class SandboxGetSignKeyResponse
     {
         return $this->getData()['sandbox_signkey'] ?? null;
     }
+
+    public function getReturnMessage()
+    {
+        return $this->getData()['return_msg'] ?? $this->getData()['retmsg'] ?? null;
+    }
 }
