@@ -29,4 +29,14 @@ class NativeGateway extends BaseAbstractGateway
     {
         return $this->createRequest('\Omnipay\WechatPay\Message\ShortenUrlRequest', $parameters);
     }
+
+    /**
+     * @param array $parameters
+     *
+     * @return \Omnipay\WechatPay\Message\DownloadBillRequest
+     */
+    public function getSandboxSignKey($parameters = array())
+    {
+        return $this->createRequest(\Omnipay\WechatPay\Message\SandboxGetSignKeyRequest::class, $parameters);
+    }
 }
