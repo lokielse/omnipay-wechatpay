@@ -33,7 +33,7 @@ class NativeGateway extends BaseAbstractGateway
     /**
      * @param array $parameters
      *
-     * @return \Omnipay\WechatPay\Message\DownloadBillRequest
+     * @return \Omnipay\WechatPay\Message\SandboxGetSignKeyRequest
      */
     public function getSandboxSignKey($parameters = array())
     {
