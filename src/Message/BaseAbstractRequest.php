@@ -15,6 +15,11 @@ abstract class BaseAbstractRequest extends AbstractRequest
         return $this->getParameter('environment');
     }
 
+    public function setEnvironment($envinronment)
+    {
+        return $this->setParameter('environment', $envinronment);
+    }
+
     /**
      * @return mixed
      */
