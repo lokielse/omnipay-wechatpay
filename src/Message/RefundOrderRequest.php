@@ -18,7 +18,7 @@ class RefundOrderRequest extends BaseAbstractRequest
 {
     protected $endpoint = 'https://api.mch.weixin.qq.com/secapi/pay/refund';
 
-    protected $sandboxEndpoint = 'https://api.mch.weixin.qq.com/sandboxnew/pay/orderquery';
+    protected $sandboxEndpoint = 'https://api.mch.weixin.qq.com/sandboxnew/pay/refund';
 
 
     /**
