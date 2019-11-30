@@ -274,4 +274,14 @@ abstract class BaseAbstractGateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\WechatPay\Message\QueryBankRequest', $parameters);
     }
+
+    /**
+     * @param array $parameters
+     * 
+     * @return \Omnipay\WechatPay\Message\CouponTransfersResponse
+     */
+    public function sendCoupon($parameters = array())
+    {
+        return $this->createRequest('\Omnipay\WechatPay\Message\CouponTransfersRequest', $parameters);
+    }
 }
