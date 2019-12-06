@@ -20,17 +20,10 @@ class CompleteRefundRequest extends BaseAbstractRequest
     public function sendData($data)
     {
         $data = $this->getData();
-        $sign = Helper::sign($data, $this->getApiKey());
 
         $responseData = array();
 
-        if (isset($data['sign']) && $data['sign'] && $sign === $data['sign']) {
-            $responseData['sign_match'] = true;
-        } else {
-            $responseData['sign_match'] = false;
-        }
-
-        if ($responseData['sign_match'] && isset($data['refund_status']) && $data['refund_status'] == 'SUCCESS') {
+        if (isset($data['refund_status']) && $data['refund_status'] == 'SUCCESS') {
             $responseData['refunded'] = true;
         } else {
             $responseData['refunded'] = false;
