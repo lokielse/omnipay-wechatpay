@@ -1,5 +1,5 @@
 {
-  "name": "lokielse/omnipay-wechatpay",
+  "name": "sunanzhi/omnipay-wechatpay",
   "type": "library",
   "description": "Wechat gateway for Omnipay payment processing library",
   "keywords": [
