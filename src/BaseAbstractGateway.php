@@ -288,7 +288,7 @@ abstract class BaseAbstractGateway extends AbstractGateway
     /**
      * @param array $parameters
      *
-     * @return \Omnipay\WechatPay\Message\QueryCouponStockResponse
+     * @return \Omnipay\WechatPay\Message\QueryCouponsInfoResponse
      */
     public function queryCouponStock($parameters = array())
     {
