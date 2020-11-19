@@ -10,6 +10,15 @@ use Omnipay\Common\Message\AbstractRequest;
  */
 abstract class BaseAbstractRequest extends AbstractRequest
 {
+    public function getEnvironment()
+    {
+        return $this->getParameter('environment');
+    }
+
+    public function setEnvironment($envinronment)
+    {
+        return $this->setParameter('environment', $envinronment);
+    }
 
     /**
      * @return mixed

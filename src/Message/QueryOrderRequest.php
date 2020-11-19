@@ -17,6 +17,20 @@ class QueryOrderRequest extends BaseAbstractRequest
 {
     protected $endpoint = 'https://api.mch.weixin.qq.com/pay/orderquery';
 
+    protected $sandboxEndpoint = 'https://api.mch.weixin.qq.com/sandboxnew/pay/orderquery';
+
+
+    /**
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        if ($this->getEnvironment() == 'production') {
+            return $this->endpoint;
+        }
+
+        return $this->sandboxEndpoint;
+    }
 
     /**
      * Get the raw data array for this message. The format of this varies from gateway to
@@ -95,7 +109,7 @@ class QueryOrderRequest extends BaseAbstractRequest
     public function sendData($data)
     {
         $body     = Helper::array2xml($data);
-        $response = $this->httpClient->request('POST', $this->endpoint, [], $body)->getBody();
+        $response = $this->httpClient->request('POST', $this->getEndpoint(), [], $body)->getBody();
         $payload  = Helper::xml2array($response);
 
         return $this->response = new QueryOrderResponse($this, $payload);
