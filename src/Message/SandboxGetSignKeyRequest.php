@@ -14,8 +14,7 @@ use Omnipay\WechatPay\Helper;
  * @package Omnipay\WechatPay\Message
  * @author  Ionut Cioflan <ionut.cioflan@dcsplus.net>
  */
-class SandboxGetSignKeyRequest
-    extends BaseAbstractRequest
+class SandboxGetSignKeyRequest extends BaseAbstractRequest
 {
     protected $sandboxEndpoint = 'https://api.mch.weixin.qq.com/sandboxnew/pay/getsignkey';
 

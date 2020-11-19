@@ -8,8 +8,7 @@ namespace Omnipay\WechatPay\Message;
  * @package Omnipay\WechatPay\Message
  * @author  Ionut Cioflan <ionut.cioflan@dcsplus.net>
  */
-class SandboxGetSignKeyResponse
-    extends BaseAbstractResponse
+class SandboxGetSignKeyResponse extends BaseAbstractResponse
 {
     /**
      * @var SandboxGetSignKeyRequest
@@ -23,16 +22,26 @@ class SandboxGetSignKeyResponse
      */
     public function isSuccessful()
     {
-        return ($this->getData()['return_code'] ?? null) === 'SUCCESS';
+        return isset($this->getData()['return_code']) && $this->getData()['return_code'] === 'SUCCESS';
     }
 
     public function getSandboxKey()
     {
-        return $this->getData()['sandbox_signkey'] ?? null;
+        return isset($this->getData()['sandbox_signkey']) ? $this->getData()['sandbox_signkey'] : null;
     }
 
     public function getReturnMessage()
     {
-        return $this->getData()['return_msg'] ?? $this->getData()['retmsg'] ?? null;
+        if (isset($this->getData()['return_msg'])) {
+            return $this->getData()['return_msg'];
+        }
+
+
+        if (isset($this->getData()['retmsg'])) {
+            return $this->getData()['retmsg'];
+        }
+
+        return null;
     }
+
 }
