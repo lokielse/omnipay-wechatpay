@@ -60,5 +60,4 @@ class SandboxGetSignKeyRequest extends BaseAbstractRequest
 
         return $this->response = new SandboxGetSignKeyResponse($this, $responseData);
     }
-
 }

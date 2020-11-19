@@ -43,5 +43,4 @@ class SandboxGetSignKeyResponse extends BaseAbstractResponse
 
         return null;
     }
-
 }
