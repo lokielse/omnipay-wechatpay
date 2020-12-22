@@ -23,7 +23,8 @@ class CompleteRefundRequest extends BaseAbstractRequest
 
         $responseData = array();
 
-        if (isset($data['sign']) ) {
+        // 微信: 退款结果可能没有 sign 参数，解密通过即可
+        if (isset($data['sign'])) {
             $sign = Helper::sign($data, $this->getApiKey());
 
             if ($data['sign'] && $sign === $data['sign']) {
