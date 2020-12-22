@@ -40,7 +40,8 @@ class RefundOrderRequest extends BaseAbstractRequest
             'out_refund_no'   => $this->getOutRefundNo(),
             'total_fee'       => $this->getTotalFee(),
             'refund_fee'      => $this->getRefundFee(),
-            'refund_fee_type' => $this->getRefundFee(),//<>
+            'refund_fee_type' => $this->getRefundType(),//<>
+            'notify_url'      => $this->getNotifyUrl(), //*
             'op_user_id'      => $this->getOpUserId() ?: $this->getMchId(),
             'refund_account'  => $this->getRefundAccount(),
             'nonce_str'       => md5(uniqid()),
@@ -201,6 +202,23 @@ class RefundOrderRequest extends BaseAbstractRequest
         return $this->getParameter('refund_fee_type');
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getNotifyUrl()
+    {
+        return $this->getParameter('notify_url');
+    }
+
+    
+    /**
+     * @param mixed $notifyUrl
+     */
+    public function setNotifyUrl($notifyUrl)
+    {
+        $this->setParameter('notify_url', $notifyUrl);
+    }
 
     /**
      * @param mixed $refundFeeType

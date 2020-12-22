@@ -20,16 +20,22 @@ class CompleteRefundRequest extends BaseAbstractRequest
     public function sendData($data)
     {
         $data = $this->getData();
-        $sign = Helper::sign($data, $this->getApiKey());
 
         $responseData = array();
 
-        if (isset($data['sign']) && $data['sign'] && $sign === $data['sign']) {
-            $responseData['sign_match'] = true;
-        } else {
-            $responseData['sign_match'] = false;
-        }
+        // 微信: 退款结果可能没有 sign 参数，解密通过即可
+        if (isset($data['sign'])) {
+            $sign = Helper::sign($data, $this->getApiKey());
 
+            if ($data['sign'] && $sign === $data['sign']) {
+                $responseData['sign_match'] = true;
+            } else {
+                $responseData['sign_match'] = false;
+            }
+        } else {
+            $responseData['sign_match'] = true;
+        }
+        
         if ($responseData['sign_match'] && isset($data['refund_status']) && $data['refund_status'] == 'SUCCESS') {
             $responseData['refunded'] = true;
         } else {
