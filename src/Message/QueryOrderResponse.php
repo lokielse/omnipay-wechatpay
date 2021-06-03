@@ -10,4 +10,22 @@ namespace Omnipay\WechatPay\Message;
  */
 class QueryOrderResponse extends BaseAbstractResponse
 {
+    /**
+     * Is the response successful?
+     *
+     * @return boolean
+     */
+    public function isSuccessful()
+    {
+        return $this->isPaid();
+    }
+
+    public function isPaid()
+    {
+        $data = $this->getData();
+
+        return isset($data['result_code']) && $data['result_code'] == 'SUCCESS'
+            && isset($data['result_code']) && $data['result_code'] == "SUCCESS"
+            && isset($data['trade_state']) && $data['trade_state'] == "SUCCESS";
+    }
 }
